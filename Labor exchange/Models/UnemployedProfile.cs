@@ -22,7 +22,7 @@ namespace Labor_exchange.Models
         public string JobExpectations { get; set; } = "Unknown";
 
         public override string ToString() =>
-            $"{GetType().Name}|{Name}|{Age}|{Proffession}|{Education}|{LastJobPlace}|{LastJobPosition}|{DismissalReason}|{MaritalStatus}|{Housing}|{Contacts}|{JobExpectations}";
+            $"{GetType().Name}|{Number}|{Name}|{Age}|{Proffession}|{Education}|{LastJobPlace}|{LastJobPosition}|{DismissalReason}|{MaritalStatus}|{Housing}|{Contacts}|{JobExpectations}";
 
         public static UnemployedProfile FromString(string line)
         {
@@ -32,17 +32,18 @@ namespace Labor_exchange.Models
 
             return new UnemployedProfile
             {
-                Name = arr[0],
-                Age = Convert.ToInt32(arr[1]),
-                Proffession = arr[2],
-                Education = arr[3],
-                LastJobPlace = arr[4],
-                LastJobPosition = arr[5],
-                DismissalReason = arr[6],
-                MaritalStatus = arr[7],
-                Housing = arr[8],
-                Contacts = arr[9],
-                JobExpectations = arr[10]
+                Number = Convert.ToInt32(arr[1]),
+                Name = arr[2],
+                Age = Convert.ToInt32(arr[3]),
+                Proffession = arr[4],
+                Education = arr[5],
+                LastJobPlace = arr[6],
+                LastJobPosition = arr[7],
+                DismissalReason = arr[8],
+                MaritalStatus = arr[9],
+                Housing = arr[10],
+                Contacts = arr[11],
+                JobExpectations = arr[12]
             };
         }
     }

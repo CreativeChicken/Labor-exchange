@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
             ddToolStripMenuItem = new ToolStripMenuItem();
             анкетаДляБезробітніхToolStripMenuItem = new ToolStripMenuItem();
@@ -50,7 +51,7 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
-            button2 = new Button();
+            findButton2 = new Button();
             textBox6 = new TextBox();
             textBox8 = new TextBox();
             textBox7 = new TextBox();
@@ -61,9 +62,13 @@
             label9 = new Label();
             label10 = new Label();
             nothingFoundLabel = new Label();
+            jobExchangeBindingSource = new BindingSource(components);
+            jobExchangeBindingSource1 = new BindingSource(components);
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)jobExchangeBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)jobExchangeBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -71,7 +76,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { ddToolStripMenuItem, оголошенняДляДрукуToolStripMenuItem, видаленняToolStripMenuItem, змінаДанихToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1219, 24);
+            menuStrip1.Size = new Size(1427, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -129,9 +134,9 @@
             // 
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(372, 44);
+            listBox1.Location = new Point(355, 44);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(817, 604);
+            listBox1.Size = new Size(1060, 604);
             listBox1.TabIndex = 1;
             // 
             // panel1
@@ -236,7 +241,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(button2);
+            panel2.Controls.Add(findButton2);
             panel2.Controls.Add(textBox6);
             panel2.Controls.Add(textBox8);
             panel2.Controls.Add(textBox7);
@@ -251,14 +256,15 @@
             panel2.Size = new Size(335, 344);
             panel2.TabIndex = 3;
             // 
-            // button2
+            // findButton2
             // 
-            button2.Location = new Point(96, 291);
-            button2.Name = "button2";
-            button2.Size = new Size(156, 32);
-            button2.TabIndex = 9;
-            button2.Text = "Пошук";
-            button2.UseVisualStyleBackColor = true;
+            findButton2.Location = new Point(96, 291);
+            findButton2.Name = "findButton2";
+            findButton2.Size = new Size(156, 32);
+            findButton2.TabIndex = 9;
+            findButton2.Text = "Пошук";
+            findButton2.UseVisualStyleBackColor = true;
+            findButton2.Click += findButton2_Click;
             // 
             // textBox6
             // 
@@ -342,11 +348,19 @@
             nothingFoundLabel.TabIndex = 4;
             nothingFoundLabel.Text = "Нічого не знайдено";
             // 
+            // jobExchangeBindingSource
+            // 
+            jobExchangeBindingSource.DataSource = typeof(Models.JobExchange);
+            // 
+            // jobExchangeBindingSource1
+            // 
+            jobExchangeBindingSource1.DataSource = typeof(Models.JobExchange);
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1219, 704);
+            ClientSize = new Size(1427, 704);
             Controls.Add(nothingFoundLabel);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -362,6 +376,8 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)jobExchangeBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)jobExchangeBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -388,7 +404,7 @@
         private ToolStripMenuItem змінаДанихToolStripMenuItem;
         private Button findButton1;
         private Panel panel2;
-        private Button button2;
+        private Button findButton2;
         private TextBox textBox6;
         private TextBox textBox8;
         private TextBox textBox7;
@@ -401,5 +417,7 @@
         private ToolStripMenuItem анкетаДляБезробітніхToolStripMenuItem;
         private ToolStripMenuItem анектаДляРоботодавцівToolStripMenuItem;
         private Label nothingFoundLabel;
+        private BindingSource jobExchangeBindingSource;
+        private BindingSource jobExchangeBindingSource1;
     }
 }

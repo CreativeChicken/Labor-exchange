@@ -31,8 +31,10 @@ namespace Labor_exchange.Models
                 }
                 else if (unit is UnemployedProfile profile && worksheetToFind is UnemployedProfile targetProfile)
                 {
-                    if (profile.Name.Contains(targetProfile.Name, StringComparison.OrdinalIgnoreCase) &&
-                        profile.Housing.Contains(targetProfile.Housing, StringComparison.OrdinalIgnoreCase))
+                    if (profile.Name.Contains(targetProfile.Proffession, StringComparison.OrdinalIgnoreCase) &&
+                        profile.Name.Contains(targetProfile.Education, StringComparison.OrdinalIgnoreCase) &&
+                        profile.Name.Contains(targetProfile.LastJobPlace, StringComparison.OrdinalIgnoreCase) &&
+                        profile.Housing.Contains(targetProfile.LastJobPosition, StringComparison.OrdinalIgnoreCase))
                     {
                         finded.Add(unit);
                     }
@@ -49,6 +51,7 @@ namespace Labor_exchange.Models
             {
                 worksheets.Add(new JobVacancy
                 {
+                    Number = i,
                     Company = $"Company {i}",
                     Position = $"Position {i}",
                     Conditions = $"Conditions {i}",
@@ -58,6 +61,7 @@ namespace Labor_exchange.Models
                 });
                 worksheets.Add(new UnemployedProfile
                 {
+                    Number = i,
                     Name = $"Name {i}",
                     Age = 18 + i,
                     Proffession = $"Profession {i}",

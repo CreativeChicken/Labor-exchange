@@ -17,7 +17,7 @@ namespace Labor_exchange.Models
         public string Requirements { get; set; } = "Unknown";
 
         public override string ToString() =>
-            $"{GetType().Name}|{Company}|{Position}|{Conditions}|{Salary}|{Housing}|{Requirements}";
+            $"{GetType().Name}|{Number}|{Company}|{Position}|{Conditions}|{Salary}|{Housing}|{Requirements}";
 
         public static JobVacancy FromString(string line)
         {
@@ -27,12 +27,13 @@ namespace Labor_exchange.Models
 
             return new JobVacancy
             {
-                Company = arr[0],
-                Position = arr[1],
-                Conditions = arr[2],
-                Salary = arr[3],
-                Housing = arr[4],
-                Requirements = arr[5]
+                Number = Convert.ToInt32(arr[1]),
+                Company = arr[2],
+                Position = arr[3],
+                Conditions = arr[4],
+                Salary = arr[5],
+                Housing = arr[6],
+                Requirements = arr[7]
             };
         }
     }

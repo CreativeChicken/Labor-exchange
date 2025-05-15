@@ -8,5 +8,6 @@ namespace Labor_exchange.Models
 {
     public abstract class Worksheet 
     {
+        public int Number { get; set; }
     }
 }

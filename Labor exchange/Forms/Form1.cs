@@ -24,6 +24,22 @@ namespace Labor_exchange
             listBox1.DataSource = result;
         }
 
+        private void findButton2_Click(object sender, EventArgs e)
+        {
+            var worksheetToFind = new UnemployedProfile
+            {
+                Proffession = textBox5.Text.Trim(),
+                Education = textBox6.Text.Trim(),
+                LastJobPlace = textBox7.Text.Trim(),
+                LastJobPosition = textBox8.Text.Trim()
+            };
+
+            List<Worksheet> result = JobExchange.Find(worksheetToFind);
+
+            nothingFoundLabel.Visible = result.Count == 0;
+            listBox1.DataSource = result;
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             var result = MessageBox.Show("Ви хочете зберегти зміни?", "", MessageBoxButtons.YesNoCancel);
