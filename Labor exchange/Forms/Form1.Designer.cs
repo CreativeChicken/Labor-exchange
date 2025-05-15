@@ -30,6 +30,8 @@
         {
             menuStrip1 = new MenuStrip();
             ddToolStripMenuItem = new ToolStripMenuItem();
+            анкетаДляБезробітніхToolStripMenuItem = new ToolStripMenuItem();
+            анектаДляРоботодавцівToolStripMenuItem = new ToolStripMenuItem();
             оголошенняДляДрукуToolStripMenuItem = new ToolStripMenuItem();
             видаленняToolStripMenuItem = new ToolStripMenuItem();
             працевлаштованийToolStripMenuItem = new ToolStripMenuItem();
@@ -37,10 +39,10 @@
             змінаДанихToolStripMenuItem = new ToolStripMenuItem();
             listBox1 = new ListBox();
             panel1 = new Panel();
-            button1 = new Button();
+            findButton1 = new Button();
+            textBox2 = new TextBox();
             textBox4 = new TextBox();
             textBox3 = new TextBox();
-            textBox2 = new TextBox();
             textBox1 = new TextBox();
             label5 = new Label();
             label4 = new Label();
@@ -49,17 +51,16 @@
             label1 = new Label();
             panel2 = new Panel();
             button2 = new Button();
-            textBox5 = new TextBox();
             textBox6 = new TextBox();
-            textBox7 = new TextBox();
             textBox8 = new TextBox();
+            textBox7 = new TextBox();
+            textBox5 = new TextBox();
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
-            анкетаДляБезробітніхToolStripMenuItem = new ToolStripMenuItem();
-            анектаДляРоботодавцівToolStripMenuItem = new ToolStripMenuItem();
+            nothingFoundLabel = new Label();
             menuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -80,6 +81,18 @@
             ddToolStripMenuItem.Name = "ddToolStripMenuItem";
             ddToolStripMenuItem.Size = new Size(94, 20);
             ddToolStripMenuItem.Text = "Реєстрування";
+            // 
+            // анкетаДляБезробітніхToolStripMenuItem
+            // 
+            анкетаДляБезробітніхToolStripMenuItem.Name = "анкетаДляБезробітніхToolStripMenuItem";
+            анкетаДляБезробітніхToolStripMenuItem.Size = new Size(211, 22);
+            анкетаДляБезробітніхToolStripMenuItem.Text = "Анкета для безробітніх";
+            // 
+            // анектаДляРоботодавцівToolStripMenuItem
+            // 
+            анектаДляРоботодавцівToolStripMenuItem.Name = "анектаДляРоботодавцівToolStripMenuItem";
+            анектаДляРоботодавцівToolStripMenuItem.Size = new Size(211, 22);
+            анектаДляРоботодавцівToolStripMenuItem.Text = "Анекта для роботодавців";
             // 
             // оголошенняДляДрукуToolStripMenuItem
             // 
@@ -116,17 +129,17 @@
             // 
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(423, 41);
+            listBox1.Location = new Point(372, 44);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(365, 394);
+            listBox1.Size = new Size(817, 604);
             listBox1.TabIndex = 1;
             // 
             // panel1
             // 
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(findButton1);
+            panel1.Controls.Add(textBox2);
             panel1.Controls.Add(textBox4);
             panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(textBox2);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
@@ -138,35 +151,36 @@
             panel1.Size = new Size(335, 259);
             panel1.TabIndex = 2;
             // 
-            // button1
+            // findButton1
             // 
-            button1.Location = new Point(85, 213);
-            button1.Name = "button1";
-            button1.Size = new Size(156, 32);
-            button1.TabIndex = 9;
-            button1.Text = "Пошук";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(68, 90);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(233, 23);
-            textBox4.TabIndex = 8;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(68, 175);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(233, 23);
-            textBox3.TabIndex = 7;
+            findButton1.Location = new Point(85, 213);
+            findButton1.Name = "findButton1";
+            findButton1.Size = new Size(156, 32);
+            findButton1.TabIndex = 9;
+            findButton1.Text = "Пошук";
+            findButton1.UseVisualStyleBackColor = true;
+            findButton1.Click += findButton1_Click;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(68, 133);
+            textBox2.Location = new Point(68, 90);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(233, 23);
-            textBox2.TabIndex = 6;
+            textBox2.TabIndex = 8;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(68, 175);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(233, 23);
+            textBox4.TabIndex = 7;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(68, 133);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(233, 23);
+            textBox3.TabIndex = 6;
             // 
             // textBox1
             // 
@@ -223,16 +237,16 @@
             // panel2
             // 
             panel2.Controls.Add(button2);
-            panel2.Controls.Add(textBox5);
             panel2.Controls.Add(textBox6);
-            panel2.Controls.Add(textBox7);
             panel2.Controls.Add(textBox8);
+            panel2.Controls.Add(textBox7);
+            panel2.Controls.Add(textBox5);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label9);
             panel2.Controls.Add(label10);
-            panel2.Location = new Point(872, 44);
+            panel2.Location = new Point(5, 310);
             panel2.Name = "panel2";
             panel2.Size = new Size(335, 344);
             panel2.TabIndex = 3;
@@ -246,19 +260,19 @@
             button2.Text = "Пошук";
             button2.UseVisualStyleBackColor = true;
             // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(68, 90);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(233, 23);
-            textBox5.TabIndex = 8;
-            // 
             // textBox6
             // 
-            textBox6.Location = new Point(68, 249);
+            textBox6.Location = new Point(68, 90);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(233, 23);
-            textBox6.TabIndex = 7;
+            textBox6.TabIndex = 8;
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(68, 249);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(233, 23);
+            textBox8.TabIndex = 7;
             // 
             // textBox7
             // 
@@ -267,12 +281,12 @@
             textBox7.Size = new Size(233, 23);
             textBox7.TabIndex = 6;
             // 
-            // textBox8
+            // textBox5
             // 
-            textBox8.Location = new Point(68, 45);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(233, 23);
-            textBox8.TabIndex = 5;
+            textBox5.Location = new Point(68, 45);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(233, 23);
+            textBox5.TabIndex = 5;
             // 
             // label6
             // 
@@ -319,23 +333,21 @@
             label10.TabIndex = 0;
             label10.Text = "Пошук робітників";
             // 
-            // анкетаДляБезробітніхToolStripMenuItem
+            // nothingFoundLabel
             // 
-            анкетаДляБезробітніхToolStripMenuItem.Name = "анкетаДляБезробітніхToolStripMenuItem";
-            анкетаДляБезробітніхToolStripMenuItem.Size = new Size(211, 22);
-            анкетаДляБезробітніхToolStripMenuItem.Text = "Анкета для безробітніх";
-            // 
-            // анектаДляРоботодавцівToolStripMenuItem
-            // 
-            анектаДляРоботодавцівToolStripMenuItem.Name = "анектаДляРоботодавцівToolStripMenuItem";
-            анектаДляРоботодавцівToolStripMenuItem.Size = new Size(211, 22);
-            анектаДляРоботодавцівToolStripMenuItem.Text = "Анекта для роботодавців";
+            nothingFoundLabel.AutoSize = true;
+            nothingFoundLabel.Location = new Point(744, 54);
+            nothingFoundLabel.Name = "nothingFoundLabel";
+            nothingFoundLabel.Size = new Size(115, 15);
+            nothingFoundLabel.TabIndex = 4;
+            nothingFoundLabel.Text = "Нічого не знайдено";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1219, 450);
+            ClientSize = new Size(1219, 704);
+            Controls.Add(nothingFoundLabel);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(listBox1);
@@ -343,6 +355,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Список вакансій";
+            FormClosing += Form1_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             panel1.ResumeLayout(false);
@@ -364,22 +377,22 @@
         private Label label4;
         private Label label3;
         private Label label2;
+        private TextBox textBox2;
         private TextBox textBox4;
         private TextBox textBox3;
-        private TextBox textBox2;
         private TextBox textBox1;
         private ToolStripMenuItem оголошенняДляДрукуToolStripMenuItem;
         private ToolStripMenuItem видаленняToolStripMenuItem;
         private ToolStripMenuItem працевлаштованийToolStripMenuItem;
         private ToolStripMenuItem відмоваВідПослугToolStripMenuItem;
         private ToolStripMenuItem змінаДанихToolStripMenuItem;
-        private Button button1;
+        private Button findButton1;
         private Panel panel2;
         private Button button2;
-        private TextBox textBox5;
         private TextBox textBox6;
-        private TextBox textBox7;
         private TextBox textBox8;
+        private TextBox textBox7;
+        private TextBox textBox5;
         private Label label6;
         private Label label7;
         private Label label8;
@@ -387,5 +400,6 @@
         private Label label10;
         private ToolStripMenuItem анкетаДляБезробітніхToolStripMenuItem;
         private ToolStripMenuItem анектаДляРоботодавцівToolStripMenuItem;
+        private Label nothingFoundLabel;
     }
 }

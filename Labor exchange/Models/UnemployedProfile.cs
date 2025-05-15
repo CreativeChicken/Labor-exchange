@@ -22,7 +22,7 @@ namespace Labor_exchange.Models
         public string JobExpectations { get; set; } = "Unknown";
 
         public override string ToString() =>
-            $"{Name}|{Age}|{Proffession}|{Education}|{LastJobPlace}|{LastJobPosition}|{DismissalReason}|{MaritalStatus}|{Housing}|{Contacts}|{JobExpectations}";
+            $"{GetType().Name}|{Name}|{Age}|{Proffession}|{Education}|{LastJobPlace}|{LastJobPosition}|{DismissalReason}|{MaritalStatus}|{Housing}|{Contacts}|{JobExpectations}";
 
         public static UnemployedProfile FromString(string line)
         {

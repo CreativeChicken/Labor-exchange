@@ -17,7 +17,7 @@ namespace Labor_exchange.Models
         public string Requirements { get; set; } = "Unknown";
 
         public override string ToString() =>
-            $"{Company}|{Position}|{Conditions}|{Salary}|{Housing}|{Requirements}";
+            $"{GetType().Name}|{Company}|{Position}|{Conditions}|{Salary}|{Housing}|{Requirements}";
 
         public static JobVacancy FromString(string line)
         {

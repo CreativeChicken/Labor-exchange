@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Labor_exchange.Models
 {
-    public abstract class Worksheet
+    public abstract class Worksheet 
     {
     }
 }

@@ -11,11 +11,8 @@ namespace Labor_exchange
         static void Main()
         {
             var Worksheet = new JobExchange();
-            Worksheet.CreateTestData(10);
+            Worksheet.CreateTestData(100);
             Worksheet.SerializeData("data.txt");
-            //
-            //Worksheet = new JobExchange();
-            //Worksheet.DeserializeData("data.txt");
 
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());

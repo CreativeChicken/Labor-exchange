@@ -11,7 +11,36 @@ namespace Labor_exchange.Models
 {
     public class JobExchange
     {
-        public List<Worksheet> worksheets { get; set; } = new();
+        public static List<Worksheet> worksheets { get; set; } = new();
+
+        public static List<Worksheet> Find(Worksheet worksheetToFind)
+        {
+            List<Worksheet> finded = new List<Worksheet>();
+
+            foreach (var unit in worksheets)
+            {
+                if (unit is JobVacancy jobVacancy && worksheetToFind is JobVacancy targetVacancy)
+                {
+                    if (jobVacancy.Company.Contains(targetVacancy.Company, StringComparison.OrdinalIgnoreCase) &&
+                        jobVacancy.Position.Contains(targetVacancy.Position, StringComparison.OrdinalIgnoreCase) &&
+                        jobVacancy.Salary.Contains(targetVacancy.Salary, StringComparison.OrdinalIgnoreCase) &&
+                        jobVacancy.Housing.Contains(targetVacancy.Housing, StringComparison.OrdinalIgnoreCase))
+                    {
+                        finded.Add(unit);
+                    }
+                }
+                else if (unit is UnemployedProfile profile && worksheetToFind is UnemployedProfile targetProfile)
+                {
+                    if (profile.Name.Contains(targetProfile.Name, StringComparison.OrdinalIgnoreCase) &&
+                        profile.Housing.Contains(targetProfile.Housing, StringComparison.OrdinalIgnoreCase))
+                    {
+                        finded.Add(unit);
+                    }
+                }
+            }
+
+            return finded;
+        }
 
         public void CreateTestData(int count)
         {
