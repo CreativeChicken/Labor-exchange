@@ -1,3 +1,5 @@
+﻿using Labor_exchange.Models;
+
 namespace Labor_exchange
 {
     public partial class Form1 : Form

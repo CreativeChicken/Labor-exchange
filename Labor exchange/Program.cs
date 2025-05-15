@@ -1,3 +1,5 @@
+using Labor_exchange.Models;
+
 namespace Labor_exchange
 {
     internal static class Program
@@ -8,8 +10,13 @@ namespace Labor_exchange
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            var Worksheet = new JobExchange();
+            Worksheet.CreateTestData(10);
+            Worksheet.SerializeData("data.txt");
+            //
+            //Worksheet = new JobExchange();
+            //Worksheet.DeserializeData("data.txt");
+
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }
