@@ -21,8 +21,10 @@ namespace Labor_exchange.Models
         public string Contacts { get; set; } = "Unknown";
         public string JobExpectations { get; set; } = "Unknown";
 
-        public override string ToString() =>
-            $"{GetType().Name}|{Number}|{Name}|{Age}|{Proffession}|{Education}|{LastJobPlace}|{LastJobPosition}|{DismissalReason}|{MaritalStatus}|{Housing}|{Contacts}|{JobExpectations}";
+        public override string ToString()
+        {
+            return $"{Name} | {Age} | {Proffession} | {Education} | {LastJobPlace} | {LastJobPosition} | {DismissalReason} | {MaritalStatus} | {Housing} | {Contacts} | {JobExpectations} ";
+        }
 
         public static UnemployedProfile FromString(string line)
         {

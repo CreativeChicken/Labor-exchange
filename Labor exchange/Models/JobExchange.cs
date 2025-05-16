@@ -133,5 +133,16 @@ namespace Labor_exchange.Models
             if (jobVacancy != null)
                 worksheets.AddRange(jobVacancy);
         }
+
+        internal static void AddWorksheet(Worksheet unit)
+        {
+            unit.Number = GenerateNumber();
+            worksheets.Add(unit);
+        }
+
+        private static int GenerateNumber()
+        {
+            return worksheets.Select(u => u.Number).Max() + 1;
+        }
     }
 }

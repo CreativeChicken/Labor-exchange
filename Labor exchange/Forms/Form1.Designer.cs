@@ -30,15 +30,14 @@
         {
             components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
-            ddToolStripMenuItem = new ToolStripMenuItem();
-            анкетаДляБезробітніхToolStripMenuItem = new ToolStripMenuItem();
-            анектаДляРоботодавцівToolStripMenuItem = new ToolStripMenuItem();
             оголошенняДляДрукуToolStripMenuItem = new ToolStripMenuItem();
-            видаленняToolStripMenuItem = new ToolStripMenuItem();
-            працевлаштованийToolStripMenuItem = new ToolStripMenuItem();
-            відмоваВідПослугToolStripMenuItem = new ToolStripMenuItem();
-            змінаДанихToolStripMenuItem = new ToolStripMenuItem();
+            змінитиToolStripMenuItem = new ToolStripMenuItem();
+            анкетаБезробітньогоїToolStripMenuItem = new ToolStripMenuItem();
+            додатиНовуToolStripMenuItem = new ToolStripMenuItem();
+            анкетаРоботодавцяToolStripMenuItem = new ToolStripMenuItem();
+            додатиНовуToolStripMenuItem1 = new ToolStripMenuItem();
             listBox1 = new ListBox();
+            worksheetBindingSource = new BindingSource(components);
             panel1 = new Panel();
             findButton1 = new Button();
             textBox2 = new TextBox();
@@ -62,42 +61,20 @@
             label9 = new Label();
             label10 = new Label();
             nothingFoundLabel = new Label();
-            jobExchangeBindingSource = new BindingSource(components);
-            jobExchangeBindingSource1 = new BindingSource(components);
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)worksheetBindingSource).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)jobExchangeBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)jobExchangeBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { ddToolStripMenuItem, оголошенняДляДрукуToolStripMenuItem, видаленняToolStripMenuItem, змінаДанихToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { оголошенняДляДрукуToolStripMenuItem, змінитиToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1427, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
-            // 
-            // ddToolStripMenuItem
-            // 
-            ddToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { анкетаДляБезробітніхToolStripMenuItem, анектаДляРоботодавцівToolStripMenuItem });
-            ddToolStripMenuItem.Name = "ddToolStripMenuItem";
-            ddToolStripMenuItem.Size = new Size(94, 20);
-            ddToolStripMenuItem.Text = "Реєстрування";
-            // 
-            // анкетаДляБезробітніхToolStripMenuItem
-            // 
-            анкетаДляБезробітніхToolStripMenuItem.Name = "анкетаДляБезробітніхToolStripMenuItem";
-            анкетаДляБезробітніхToolStripMenuItem.Size = new Size(211, 22);
-            анкетаДляБезробітніхToolStripMenuItem.Text = "Анкета для безробітніх";
-            // 
-            // анектаДляРоботодавцівToolStripMenuItem
-            // 
-            анектаДляРоботодавцівToolStripMenuItem.Name = "анектаДляРоботодавцівToolStripMenuItem";
-            анектаДляРоботодавцівToolStripMenuItem.Size = new Size(211, 22);
-            анектаДляРоботодавцівToolStripMenuItem.Text = "Анекта для роботодавців";
             // 
             // оголошенняДляДрукуToolStripMenuItem
             // 
@@ -105,39 +82,53 @@
             оголошенняДляДрукуToolStripMenuItem.Size = new Size(147, 20);
             оголошенняДляДрукуToolStripMenuItem.Text = "Оголошення для друку";
             // 
-            // видаленняToolStripMenuItem
+            // змінитиToolStripMenuItem
             // 
-            видаленняToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { працевлаштованийToolStripMenuItem, відмоваВідПослугToolStripMenuItem });
-            видаленняToolStripMenuItem.Name = "видаленняToolStripMenuItem";
-            видаленняToolStripMenuItem.Size = new Size(78, 20);
-            видаленняToolStripMenuItem.Text = "Видалення";
+            змінитиToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { анкетаБезробітньогоїToolStripMenuItem, анкетаРоботодавцяToolStripMenuItem });
+            змінитиToolStripMenuItem.Name = "змінитиToolStripMenuItem";
+            змінитиToolStripMenuItem.Size = new Size(64, 20);
+            змінитиToolStripMenuItem.Text = "Змінити";
             // 
-            // працевлаштованийToolStripMenuItem
+            // анкетаБезробітньогоїToolStripMenuItem
             // 
-            працевлаштованийToolStripMenuItem.Name = "працевлаштованийToolStripMenuItem";
-            працевлаштованийToolStripMenuItem.Size = new Size(198, 22);
-            працевлаштованийToolStripMenuItem.Text = "Працевлаштований(а)";
+            анкетаБезробітньогоїToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { додатиНовуToolStripMenuItem });
+            анкетаБезробітньогоїToolStripMenuItem.Name = "анкетаБезробітньогоїToolStripMenuItem";
+            анкетаБезробітньогоїToolStripMenuItem.Size = new Size(205, 22);
+            анкетаБезробітньогоїToolStripMenuItem.Text = "Анкета безробітнього(ї)";
             // 
-            // відмоваВідПослугToolStripMenuItem
+            // додатиНовуToolStripMenuItem
             // 
-            відмоваВідПослугToolStripMenuItem.Name = "відмоваВідПослугToolStripMenuItem";
-            відмоваВідПослугToolStripMenuItem.Size = new Size(198, 22);
-            відмоваВідПослугToolStripMenuItem.Text = "Відмова від послуг";
+            додатиНовуToolStripMenuItem.Name = "додатиНовуToolStripMenuItem";
+            додатиНовуToolStripMenuItem.Size = new Size(142, 22);
+            додатиНовуToolStripMenuItem.Text = "Додати нову";
+            додатиНовуToolStripMenuItem.Click += додатиНовуToolStripMenuItem_Click;
             // 
-            // змінаДанихToolStripMenuItem
+            // анкетаРоботодавцяToolStripMenuItem
             // 
-            змінаДанихToolStripMenuItem.Name = "змінаДанихToolStripMenuItem";
-            змінаДанихToolStripMenuItem.Size = new Size(86, 20);
-            змінаДанихToolStripMenuItem.Text = "Зміна даних";
+            анкетаРоботодавцяToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { додатиНовуToolStripMenuItem1 });
+            анкетаРоботодавцяToolStripMenuItem.Name = "анкетаРоботодавцяToolStripMenuItem";
+            анкетаРоботодавцяToolStripMenuItem.Size = new Size(205, 22);
+            анкетаРоботодавцяToolStripMenuItem.Text = "Анкета роботодавця";
+            // 
+            // додатиНовуToolStripMenuItem1
+            // 
+            додатиНовуToolStripMenuItem1.Name = "додатиНовуToolStripMenuItem1";
+            додатиНовуToolStripMenuItem1.Size = new Size(142, 22);
+            додатиНовуToolStripMenuItem1.Text = "Додати нову";
             // 
             // listBox1
             // 
+            listBox1.DataSource = worksheetBindingSource;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(355, 44);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(1060, 604);
             listBox1.TabIndex = 1;
+            // 
+            // worksheetBindingSource
+            // 
+            worksheetBindingSource.DataSource = typeof(Models.Worksheet);
             // 
             // panel1
             // 
@@ -342,19 +333,11 @@
             // nothingFoundLabel
             // 
             nothingFoundLabel.AutoSize = true;
-            nothingFoundLabel.Location = new Point(744, 54);
+            nothingFoundLabel.Location = new Point(845, 54);
             nothingFoundLabel.Name = "nothingFoundLabel";
             nothingFoundLabel.Size = new Size(115, 15);
             nothingFoundLabel.TabIndex = 4;
             nothingFoundLabel.Text = "Нічого не знайдено";
-            // 
-            // jobExchangeBindingSource
-            // 
-            jobExchangeBindingSource.DataSource = typeof(Models.JobExchange);
-            // 
-            // jobExchangeBindingSource1
-            // 
-            jobExchangeBindingSource1.DataSource = typeof(Models.JobExchange);
             // 
             // Form1
             // 
@@ -372,12 +355,11 @@
             FormClosing += Form1_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)worksheetBindingSource).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)jobExchangeBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)jobExchangeBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -385,7 +367,6 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem ddToolStripMenuItem;
         private ListBox listBox1;
         private Panel panel1;
         private Label label1;
@@ -398,10 +379,6 @@
         private TextBox textBox3;
         private TextBox textBox1;
         private ToolStripMenuItem оголошенняДляДрукуToolStripMenuItem;
-        private ToolStripMenuItem видаленняToolStripMenuItem;
-        private ToolStripMenuItem працевлаштованийToolStripMenuItem;
-        private ToolStripMenuItem відмоваВідПослугToolStripMenuItem;
-        private ToolStripMenuItem змінаДанихToolStripMenuItem;
         private Button findButton1;
         private Panel panel2;
         private Button findButton2;
@@ -414,10 +391,12 @@
         private Label label8;
         private Label label9;
         private Label label10;
-        private ToolStripMenuItem анкетаДляБезробітніхToolStripMenuItem;
-        private ToolStripMenuItem анектаДляРоботодавцівToolStripMenuItem;
         private Label nothingFoundLabel;
-        private BindingSource jobExchangeBindingSource;
-        private BindingSource jobExchangeBindingSource1;
+        private BindingSource worksheetBindingSource;
+        private ToolStripMenuItem змінитиToolStripMenuItem;
+        private ToolStripMenuItem анкетаБезробітньогоїToolStripMenuItem;
+        private ToolStripMenuItem додатиНовуToolStripMenuItem;
+        private ToolStripMenuItem анкетаРоботодавцяToolStripMenuItem;
+        private ToolStripMenuItem додатиНовуToolStripMenuItem1;
     }
 }

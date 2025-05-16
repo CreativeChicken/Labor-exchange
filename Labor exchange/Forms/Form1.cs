@@ -1,4 +1,5 @@
 ﻿using Labor_exchange.Models;
+using Labor_exchange.Forms;
 
 namespace Labor_exchange
 {
@@ -21,7 +22,8 @@ namespace Labor_exchange
             List<Worksheet> result = JobExchange.Find(worksheetToFind);
 
             nothingFoundLabel.Visible = result.Count == 0;
-            listBox1.DataSource = result;
+            listBox1.DataSource = worksheetBindingSource;
+            worksheetBindingSource.DataSource = result;
         }
 
         private void findButton2_Click(object sender, EventArgs e)
@@ -37,7 +39,8 @@ namespace Labor_exchange
             List<Worksheet> result = JobExchange.Find(worksheetToFind);
 
             nothingFoundLabel.Visible = result.Count == 0;
-            listBox1.DataSource = result;
+            listBox1.DataSource = worksheetBindingSource;
+            worksheetBindingSource.DataSource = result;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -52,6 +55,16 @@ namespace Labor_exchange
                 case DialogResult.Cancel:
                     e.Cancel = true;
                     break;
+            }
+        }
+
+        private void додатиНовуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using Form2 form = new();
+            var result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                JobExchange.AddWorksheet(form.UnemployedProfile);
             }
         }
     }
