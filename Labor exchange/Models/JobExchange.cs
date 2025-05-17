@@ -51,7 +51,7 @@ namespace Labor_exchange.Models
             {
                 worksheets.Add(new JobVacancy
                 {
-                    Number = i,
+                    Id = i,
                     Company = $"Company {i}",
                     Position = $"Position {i}",
                     Conditions = $"Conditions {i}",
@@ -61,7 +61,7 @@ namespace Labor_exchange.Models
                 });
                 worksheets.Add(new UnemployedProfile
                 {
-                    Number = i,
+                    Id = i,
                     Name = $"Name {i}",
                     Age = 18 + i,
                     Proffession = $"Profession {i}",
@@ -136,13 +136,13 @@ namespace Labor_exchange.Models
 
         internal static void AddWorksheet(Worksheet unit)
         {
-            unit.Number = GenerateNumber();
+            unit.Id = GenerateNumber();
             worksheets.Add(unit);
         }
 
         private static int GenerateNumber()
         {
-            return worksheets.Select(u => u.Number).Max() + 1;
+            return worksheets.Select(u => u.Id).Max() + 1;
         }
     }
 }

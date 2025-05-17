@@ -34,7 +34,7 @@ namespace Labor_exchange.Models
 
             return new UnemployedProfile
             {
-                Number = Convert.ToInt32(arr[1]),
+                Id = Convert.ToInt32(arr[1]),
                 Name = arr[2],
                 Age = Convert.ToInt32(arr[3]),
                 Proffession = arr[4],

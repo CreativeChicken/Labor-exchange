@@ -22,8 +22,7 @@ namespace Labor_exchange
             List<Worksheet> result = JobExchange.Find(worksheetToFind);
 
             nothingFoundLabel.Visible = result.Count == 0;
-            listBox1.DataSource = worksheetBindingSource;
-            worksheetBindingSource.DataSource = result;
+            listBox1.DataSource = result;
         }
 
         private void findButton2_Click(object sender, EventArgs e)
@@ -39,8 +38,7 @@ namespace Labor_exchange
             List<Worksheet> result = JobExchange.Find(worksheetToFind);
 
             nothingFoundLabel.Visible = result.Count == 0;
-            listBox1.DataSource = worksheetBindingSource;
-            worksheetBindingSource.DataSource = result;
+            listBox1.DataSource = result;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -66,6 +64,11 @@ namespace Labor_exchange
             {
                 JobExchange.AddWorksheet(form.UnemployedProfile);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

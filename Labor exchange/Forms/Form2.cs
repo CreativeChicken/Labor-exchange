@@ -14,7 +14,7 @@ namespace Labor_exchange.Forms
 {
     public partial class Form2 : Form
     {
-        public UnemployedProfile UnemployedProfile; 
+        public UnemployedProfile UnemployedProfile;
 
         public Form2()
         {

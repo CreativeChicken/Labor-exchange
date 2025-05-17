@@ -8,7 +8,7 @@ namespace Labor_exchange.Models
 {
     public class Worksheet
     {
-        public int Number { get; set; }
+        public int Id { get; set; }
 
     }
 }

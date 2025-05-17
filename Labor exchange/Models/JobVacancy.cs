@@ -29,7 +29,7 @@ namespace Labor_exchange.Models
 
             return new JobVacancy
             {
-                Number = Convert.ToInt32(arr[1]),
+                Id = Convert.ToInt32(arr[1]),
                 Company = arr[2],
                 Position = arr[3],
                 Conditions = arr[4],

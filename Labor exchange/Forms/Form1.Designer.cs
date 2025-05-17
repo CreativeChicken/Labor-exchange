@@ -37,7 +37,6 @@
             анкетаРоботодавцяToolStripMenuItem = new ToolStripMenuItem();
             додатиНовуToolStripMenuItem1 = new ToolStripMenuItem();
             listBox1 = new ListBox();
-            worksheetBindingSource = new BindingSource(components);
             panel1 = new Panel();
             findButton1 = new Button();
             textBox2 = new TextBox();
@@ -61,10 +60,11 @@
             label9 = new Label();
             label10 = new Label();
             nothingFoundLabel = new Label();
+            worksheetBindingSource = new BindingSource(components);
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)worksheetBindingSource).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)worksheetBindingSource).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -125,10 +125,6 @@
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(1060, 604);
             listBox1.TabIndex = 1;
-            // 
-            // worksheetBindingSource
-            // 
-            worksheetBindingSource.DataSource = typeof(Models.Worksheet);
             // 
             // panel1
             // 
@@ -339,6 +335,10 @@
             nothingFoundLabel.TabIndex = 4;
             nothingFoundLabel.Text = "Нічого не знайдено";
             // 
+            // worksheetBindingSource
+            // 
+            worksheetBindingSource.DataSource = typeof(Models.Worksheet);
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -353,13 +353,14 @@
             Name = "Form1";
             Text = "Список вакансій";
             FormClosing += Form1_FormClosing;
+            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)worksheetBindingSource).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)worksheetBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -392,11 +393,11 @@
         private Label label9;
         private Label label10;
         private Label nothingFoundLabel;
-        private BindingSource worksheetBindingSource;
         private ToolStripMenuItem змінитиToolStripMenuItem;
         private ToolStripMenuItem анкетаБезробітньогоїToolStripMenuItem;
         private ToolStripMenuItem додатиНовуToolStripMenuItem;
         private ToolStripMenuItem анкетаРоботодавцяToolStripMenuItem;
         private ToolStripMenuItem додатиНовуToolStripMenuItem1;
+        private BindingSource worksheetBindingSource;
     }
 }

@@ -291,6 +291,7 @@
             Controls.Add(panel1);
             Name = "Form2";
             Text = "Додавання анкети";
+            FormClosed += Form2_FormClosed;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
