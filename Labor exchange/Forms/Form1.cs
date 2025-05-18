@@ -58,17 +58,49 @@ namespace Labor_exchange
 
         private void додатиНовуToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using Form2 form = new();
+            using Form2Add form = new();
             var result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
                 JobExchange.AddWorksheet(form.UnemployedProfile);
             }
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void додатиНовуToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            using Form3Add form = new();
+            var result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                JobExchange.AddWorksheet(form.JobVacancy);
+            }
+        }
 
+        private void змінитиToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            UnemployedProfile unemployedProfile = listBox1.SelectedItem as UnemployedProfile;
+            if (unemployedProfile == null)
+            {
+                MessageBox.Show("Виберіть анкету із списку робітників");
+            }
+            else
+            {
+                using Form2Edit form = new(unemployedProfile);
+                form.ShowDialog();
+            }
+        }
+
+        private void змінитиToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            JobVacancy jobVacancy = listBox1.SelectedItem as JobVacancy;
+            if (jobVacancy == null)
+            {
+                MessageBox.Show("Виберіть вакансію із списку вакансій");
+            }
+            else
+            {
+                using Form3Edit form = new(jobVacancy);
+                form.ShowDialog();
+            }
         }
     }
 }

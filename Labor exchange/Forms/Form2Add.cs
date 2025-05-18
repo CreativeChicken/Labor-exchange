@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace Labor_exchange.Forms
 {
-    public partial class Form2 : Form
+    public partial class Form2Add : Form
     {
         public UnemployedProfile UnemployedProfile;
 
-        public Form2()
+        public Form2Add()
         {
             InitializeComponent();
         }

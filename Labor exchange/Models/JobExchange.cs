@@ -134,10 +134,10 @@ namespace Labor_exchange.Models
                 worksheets.AddRange(jobVacancy);
         }
 
-        internal static void AddWorksheet(Worksheet unit)
+        internal static void AddWorksheet(Worksheet worksheet)
         {
-            unit.Id = GenerateNumber();
-            worksheets.Add(unit);
+            worksheet.Id = GenerateNumber();
+            worksheets.Add(worksheet);
         }
 
         private static int GenerateNumber()
