@@ -281,7 +281,7 @@
             cancelButton.Text = "Відмінити";
             cancelButton.UseVisualStyleBackColor = true;
             // 
-            // Form2
+            // Form2Add
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -289,8 +289,9 @@
             Controls.Add(cancelButton);
             Controls.Add(okButton);
             Controls.Add(panel1);
-            Name = "Form2";
+            Name = "Form2Add";
             Text = "Додавання анкети";
+            FormClosing += Form2_FormClosing;
             FormClosed += Form2_FormClosed;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

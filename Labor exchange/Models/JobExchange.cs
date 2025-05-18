@@ -13,6 +13,7 @@ namespace Labor_exchange.Models
     {
         public static List<Worksheet> worksheets { get; set; } = new();
 
+        // Метод для пошуку вакансій або анкет безробітних
         public static List<Worksheet> Find(Worksheet worksheetToFind)
         {
             List<Worksheet> finded = new List<Worksheet>();
@@ -31,9 +32,9 @@ namespace Labor_exchange.Models
                 }
                 else if (unit is UnemployedProfile profile && worksheetToFind is UnemployedProfile targetProfile)
                 {
-                    if (profile.Name.Contains(targetProfile.Proffession, StringComparison.OrdinalIgnoreCase) &&
-                        profile.Name.Contains(targetProfile.Education, StringComparison.OrdinalIgnoreCase) &&
-                        profile.Name.Contains(targetProfile.LastJobPlace, StringComparison.OrdinalIgnoreCase) &&
+                    if (profile.Proffession.Contains(targetProfile.Proffession, StringComparison.OrdinalIgnoreCase) &&
+                        profile.Education.Contains(targetProfile.Education, StringComparison.OrdinalIgnoreCase) &&
+                        profile.LastJobPlace.Contains(targetProfile.LastJobPlace, StringComparison.OrdinalIgnoreCase) &&
                         profile.Housing.Contains(targetProfile.LastJobPosition, StringComparison.OrdinalIgnoreCase))
                     {
                         finded.Add(unit);
@@ -44,6 +45,7 @@ namespace Labor_exchange.Models
             return finded;
         }
 
+        // Метод для генерації тестових даних
         public void CreateTestData(int count)
         {
             int i = 1;
@@ -77,6 +79,7 @@ namespace Labor_exchange.Models
             }
         }
 
+        // Метод для збереження даних
         public void SaveData(string path)
         {
             using (StreamWriter writer = new(path))
@@ -95,6 +98,7 @@ namespace Labor_exchange.Models
             }
         }
 
+        // Метод для завантаження даних
         public void LoadData(string path)
         {
             using (StreamReader reader = new(path))
@@ -112,6 +116,7 @@ namespace Labor_exchange.Models
             }
         }
 
+        // Метод для сереалізації даних
         public void SerializeData(string path)
         {
             var unemployedProfile = worksheets.Where(u => u is not JobVacancy).Cast<UnemployedProfile>();
@@ -121,6 +126,7 @@ namespace Labor_exchange.Models
             File.WriteAllLines(path, [jsonB, jsonTB]);
         }
 
+        // Метод для десереалізації даних
         public void DeserializeData(string path)
         {
             var lines = File.ReadAllLines(path);
@@ -134,15 +140,23 @@ namespace Labor_exchange.Models
                 worksheets.AddRange(jobVacancy);
         }
 
+        // Метод для додавання вакансії або анкети
         internal static void AddWorksheet(Worksheet worksheet)
         {
-            worksheet.Id = GenerateNumber();
+            worksheet.Id = GenerateId();
             worksheets.Add(worksheet);
         }
 
-        private static int GenerateNumber()
+        // Метод для генерації унікального Id
+        private static int GenerateId()
         {
             return worksheets.Select(u => u.Id).Max() + 1;
+        }
+
+        // Метод для видалення вакансії або анкети
+        public static void RemoveWorksheet(Worksheet worksheet)
+        {
+            worksheets.Remove(worksheet);
         }
     }
 }

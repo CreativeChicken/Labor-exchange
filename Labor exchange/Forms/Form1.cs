@@ -5,10 +5,14 @@ namespace Labor_exchange
 {
     public partial class Form1 : Form
     {
+        // Конструктор
         public Form1()
         {
             InitializeComponent();
+            JobExchange jobExchangeInstance = new JobExchange();
+            jobExchangeInstance.DeserializeData("data.txt");
         }
+        // Кнопка пошуку вакансій
         private void findButton1_Click(object sender, EventArgs e)
         {
             var worksheetToFind = new JobVacancy
@@ -25,6 +29,7 @@ namespace Labor_exchange
             listBox1.DataSource = result;
         }
 
+        // Кнопка пошуку анкет безробітних
         private void findButton2_Click(object sender, EventArgs e)
         {
             var worksheetToFind = new UnemployedProfile
@@ -41,12 +46,15 @@ namespace Labor_exchange
             listBox1.DataSource = result;
         }
 
+        // Закриття програми
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             var result = MessageBox.Show("Ви хочете зберегти зміни?", "", MessageBoxButtons.YesNoCancel);
             switch (result)
             {
                 case DialogResult.Yes:
+                    JobExchange jobExchangeInstance = new JobExchange();
+                    jobExchangeInstance.SerializeData("data.txt");
                     break;
                 case DialogResult.No:
                     break;
@@ -56,7 +64,86 @@ namespace Labor_exchange
             }
         }
 
-        private void додатиНовуToolStripMenuItem_Click(object sender, EventArgs e)
+        // Кнопка працевлаштувань(-я)
+        private void обратиВакансіюробітникаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var selectedItem = listBox1.SelectedItem;
+
+            if (selectedItem is UnemployedProfile unemployedProfile)
+            {
+                var result = MessageBox.Show(
+                    "Ви дійсно хочете обрати цього робітника?",
+                    "Підтвердження",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    unemployedProfile.IsArchived = true;
+                }
+            }
+            else if (selectedItem is JobVacancy jobVacancy)
+            {
+                var result = MessageBox.Show(
+                    "Ви дійсно хочете обрати цю вакансію?",
+                    "Підтвердження",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    jobVacancy.IsArchived = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Виберіть анкету робітника або вакансію зі списку.");
+            }
+        }
+
+        // Кнопка відмови від послуг
+        private void відмовитисьВідПослугToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var selectedItem = listBox1.SelectedItem;
+
+            if (selectedItem is UnemployedProfile unemployedProfile)
+            {
+                var result = MessageBox.Show(
+                    "Ви дійсно хочете видалити цю анкету?",
+                    "Підтвердження",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    JobExchange.RemoveWorksheet(unemployedProfile);
+                    JobExchange jobExchangeInstance = new JobExchange();
+                    jobExchangeInstance.SerializeData("data.txt");
+                }
+            }
+            else if (selectedItem is JobVacancy jobVacancy)
+            {
+                var result = MessageBox.Show(
+                    "Ви дійсно хочете видалити цю вакансію?",
+                    "Підтвердження",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    JobExchange.RemoveWorksheet(jobVacancy);
+                    JobExchange jobExchangeInstance = new JobExchange();
+                    jobExchangeInstance.SerializeData("data.txt");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Виберіть анкету робітника або вакансію зі списку.");
+            }
+        }
+
+        // Кнопка додавання анкети безробітного
+        private void анкетаБезробітньогоToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using Form2Add form = new();
             var result = form.ShowDialog();
@@ -65,7 +152,9 @@ namespace Labor_exchange
                 JobExchange.AddWorksheet(form.UnemployedProfile);
             }
         }
-        private void додатиНовуToolStripMenuItem1_Click(object sender, EventArgs e)
+
+        // Кнопка додавання вакансії
+        private void вакансіяРоботодавцяToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using Form3Add form = new();
             var result = form.ShowDialog();
@@ -75,31 +164,45 @@ namespace Labor_exchange
             }
         }
 
-        private void змінитиToolStripMenuItem1_Click(object sender, EventArgs e)
+        // Кнопка зміни анкети безробітного або вакансії
+        private void Змінити_Click(object sender, EventArgs e)
         {
-            UnemployedProfile unemployedProfile = listBox1.SelectedItem as UnemployedProfile;
-            if (unemployedProfile == null)
+            var selectedItem = listBox1.SelectedItem;
+
+            if (selectedItem is UnemployedProfile profile)
             {
-                MessageBox.Show("Виберіть анкету із списку робітників");
+                using Form2Edit form = new(profile);
+                form.ShowDialog();
+            }
+            else if (selectedItem is JobVacancy vacancy)
+            {
+                using Form3Edit form = new(vacancy);
+                form.ShowDialog();
             }
             else
             {
-                using Form2Edit form = new(unemployedProfile);
-                form.ShowDialog();
+                MessageBox.Show("Виберіть анкету робітника або вакансію зі списку.");
             }
         }
 
-        private void змінитиToolStripMenuItem2_Click(object sender, EventArgs e)
+        // Кнопка друку анкети безробітного або вакансії
+        private void оголошенняДляДрукуToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            JobVacancy jobVacancy = listBox1.SelectedItem as JobVacancy;
-            if (jobVacancy == null)
+            var selectedItem = listBox1.SelectedItem;
+
+            if (selectedItem is UnemployedProfile profile)
             {
-                MessageBox.Show("Виберіть вакансію із списку вакансій");
+                using Form4ForPrintProfile form = new Form4ForPrintProfile(profile);
+                form.ShowDialog();
+            }
+            else if (selectedItem is JobVacancy vacancy)
+            {
+                using Form4ForPrintVacancy form = new Form4ForPrintVacancy(vacancy);
+                form.ShowDialog();
             }
             else
             {
-                using Form3Edit form = new(jobVacancy);
-                form.ShowDialog();
+                MessageBox.Show("Виберіть анкету робітника або вакансію зі списку для друку.");
             }
         }
     }

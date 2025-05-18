@@ -15,6 +15,7 @@ namespace Labor_exchange.Forms
     {
         public UnemployedProfile UnemployedProfile;
 
+        // Конструктор з завчасно заданими даними
         public Form2Edit(UnemployedProfile unemployedProfile)
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace Labor_exchange.Forms
             UnemployedProfile = unemployedProfile;
         }
 
+        // Закриттям форми з валідацією
         private void Form2Edit_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DialogResult == DialogResult.OK)
@@ -48,6 +50,14 @@ namespace Labor_exchange.Forms
                 UnemployedProfile.Housing = textBoxEdit93.Text;
                 UnemployedProfile.Contacts = textBoxEdit103.Text;
                 UnemployedProfile.JobExpectations = textBoxEdit113.Text;
+
+                // валідація
+                string report = UnemployedProfile.Validate();
+                if (report != "")
+                {
+                    MessageBox.Show(report);
+                    e.Cancel = true;
+                }
             }
         }
     }

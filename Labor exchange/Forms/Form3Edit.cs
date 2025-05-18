@@ -15,6 +15,7 @@ namespace Labor_exchange.Forms
     {
         public JobVacancy JobVacancy;
 
+        // Конструктор з завчасно заданими даними
         public Form3Edit(JobVacancy jobVacancy)
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace Labor_exchange.Forms
             JobVacancy = jobVacancy;
         }
 
+        // Закриттям форми з валідацією
         private void Form3Edit_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DialogResult == DialogResult.OK)
@@ -38,6 +40,14 @@ namespace Labor_exchange.Forms
                 JobVacancy.Salary = textBoxEdit44.Text;
                 JobVacancy.Housing = textBoxEdit54.Text;
                 JobVacancy.Requirements = textBoxEdit64.Text;
+
+                // валідація
+                string report = JobVacancy.Validate();
+                if (report != "")
+                {
+                    MessageBox.Show(report);
+                    e.Cancel = true;
+                }
             }
         }
     }
