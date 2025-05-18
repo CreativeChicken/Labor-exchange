@@ -10,9 +10,12 @@ namespace Labor_exchange
         [STAThread]
         static void Main()
         {
-            var Worksheet = new JobExchange();
-            Worksheet.CreateTestData(10);
-            Worksheet.SerializeData("data.txt");
+            if (!File.Exists("data.txt"))
+            {
+                var Worksheet = new JobExchange();
+                Worksheet.CreateTestData(35);
+                Worksheet.SerializeData("data.txt");
+            }
 
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
