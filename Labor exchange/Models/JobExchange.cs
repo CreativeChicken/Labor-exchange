@@ -54,27 +54,27 @@ namespace Labor_exchange.Models
                 worksheets.Add(new JobVacancy
                 {
                     Id = i,
-                    Company = $"Company {i}",
-                    Position = $"Position {i}",
-                    Conditions = $"Conditions {i}",
-                    Salary = $"Salary {i}",
-                    Housing = $"Housing {i}",
-                    Requirements = $"Requirements {i}"
+                    Company = $"Фірма {i}",
+                    Position = $"Посада {i}",
+                    Conditions = $"Умови праці {i}",
+                    Salary = $"Зарплата {i}",
+                    Housing = $"Житлові умови {i}",
+                    Requirements = $"Вимоги до фахівця {i}"
                 });
                 worksheets.Add(new UnemployedProfile
                 {
                     Id = i,
-                    Name = $"Name {i}",
+                    Name = $"Ім'я {i}",
                     Age = 18 + i,
-                    Proffession = $"Profession {i}",
-                    Education = $"Education {i}",
-                    LastJobPlace = $"LastJobPlace {i}",
-                    LastJobPosition = $"LastJobPosition {i}",
-                    DismissalReason = $"DismissalReason {i}",
-                    MaritalStatus = $"MaritalStatus {i}",
-                    Housing = $"Housing {i}",
-                    Contacts = $"Contacts {i}",
-                    JobExpectations = $"JobExpectations {i}"
+                    Proffession = $"Професія {i}",
+                    Education = $"Освіта {i}",
+                    LastJobPlace = $"Останнє місце роботи {i}",
+                    LastJobPosition = $"Остання посада {i}",
+                    DismissalReason = $"Причина звільнення {i}",
+                    MaritalStatus = $"Сімейний стан {i}",
+                    Housing = $"Житлові умови {i}",
+                    Contacts = $"Контакти {i}",
+                    JobExpectations = $"Вимоги від роботи {i}"
                 });
             }
         }
@@ -111,7 +111,7 @@ namespace Labor_exchange.Models
                     else if (line.StartsWith("Вакансія роботодавця|"))
                         worksheets.Add(JobVacancy.FromString(line.Substring("Вакансія роботодавця|".Length)));
                     else
-                        throw new FormatException($"Unrecognized line format: {line}");
+                        throw new FormatException($"Нерозпізнаний формат рядка: {line}");
                 }
             }
         }

@@ -9,12 +9,12 @@ namespace Labor_exchange.Models
 {
     public class JobVacancy : Worksheet
     {
-        public string Company { get; set; } = "Unknown";
-        public string Position { get; set; } = "Unknown";
-        public string Conditions { get; set; } = "Unknown";
-        public string Salary { get; set; } = "Unknown";
-        public string Housing { get; set; } = "Unknown";
-        public string Requirements { get; set; } = "Unknown";
+        public string Company { get; set; } = "Невідомо";
+        public string Position { get; set; } = "Невідомо";
+        public string Conditions { get; set; } = "Невідомо";
+        public string Salary { get; set; } = "Невідомо";
+        public string Housing { get; set; } = "Невідомо";
+        public string Requirements { get; set; } = "Невідомо";
         public bool IsArchived { get; set; } = false;
 
         // Вивід даних у вигляді рядка та помітка архівування
@@ -28,7 +28,7 @@ namespace Labor_exchange.Models
         {
             var arr = line.Split('|');
             if (arr.Length != 6)
-                throw new FormatException("Invalid format for JobVacancy.");
+                throw new FormatException("Недійсний формат.");
 
             return new JobVacancy
             {
@@ -47,17 +47,17 @@ namespace Labor_exchange.Models
         {
             string errorMessage = "";
             if (string.IsNullOrEmpty(Company))
-                errorMessage += "Company must not be empty.\n";
+                errorMessage += "Фірма не може бути пустою.\n";
             if (string.IsNullOrEmpty(Position))
-                errorMessage += "Position must not be empty.\n";
+                errorMessage += "Посада не може бути пустою.\n";
             if (string.IsNullOrEmpty(Conditions))
-                errorMessage += "Conditions must not be empty.\n";
+                errorMessage += "Умови праці не можуть бути пустими.\n";
             if (string.IsNullOrEmpty(Salary))
-                errorMessage += "Salary must not be empty.\n";
+                errorMessage += "Заробітня плата не може бути пустою.\n";
             if (string.IsNullOrEmpty(Housing))
-                errorMessage += "Housing must not be empty.\n";
+                errorMessage += "Житлові умови не можуть бути пустими.\n";
             if (string.IsNullOrEmpty(Requirements))
-                errorMessage += "Requirements must not be empty.\n";
+                errorMessage += "Вимоги до фахівця не можуть бути пустими.\n";
             return errorMessage;
         }
     }
