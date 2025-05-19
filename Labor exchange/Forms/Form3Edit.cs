@@ -15,7 +15,7 @@ namespace Labor_exchange.Forms
     {
         public JobVacancy JobVacancy;
 
-        // Конструктор з завчасно заданими даними
+        // Конструктор з завчасно заданими даними та прив'язка клавіш
         public Form3Edit(JobVacancy jobVacancy)
         {
             InitializeComponent();
@@ -27,6 +27,9 @@ namespace Labor_exchange.Forms
             textBoxEdit54.Text = jobVacancy.Housing;
             textBoxEdit64.Text = jobVacancy.Requirements;
             JobVacancy = jobVacancy;
+
+            this.KeyPreview = true;
+            this.KeyDown += Form3Edit_KeyDown;
         }
 
         // Закриттям форми з валідацією
@@ -48,6 +51,23 @@ namespace Labor_exchange.Forms
                     MessageBox.Show(report);
                     e.Cancel = true;
                 }
+            }
+        }
+
+        // Обробка натискання клавіш Enter та Escape
+        private void Form3Edit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+                e.Handled = true;
             }
         }
     }

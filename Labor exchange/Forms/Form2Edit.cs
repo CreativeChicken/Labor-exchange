@@ -15,7 +15,7 @@ namespace Labor_exchange.Forms
     {
         public UnemployedProfile UnemployedProfile;
 
-        // Конструктор з завчасно заданими даними
+        // Конструктор з завчасно заданими даними та прив'язка клавіш
         public Form2Edit(UnemployedProfile unemployedProfile)
         {
             InitializeComponent();
@@ -32,6 +32,9 @@ namespace Labor_exchange.Forms
             textBoxEdit103.Text = unemployedProfile.Contacts;
             textBoxEdit113.Text = unemployedProfile.JobExpectations;
             UnemployedProfile = unemployedProfile;
+
+            this.KeyPreview = true;
+            this.KeyDown += Form2Edit_KeyDown;
         }
 
         // Закриттям форми з валідацією
@@ -58,6 +61,23 @@ namespace Labor_exchange.Forms
                     MessageBox.Show(report);
                     e.Cancel = true;
                 }
+            }
+        }
+
+        // Обробка натискання клавіш Enter та Escape
+        private void Form2Edit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+                e.Handled = true;
             }
         }
     }

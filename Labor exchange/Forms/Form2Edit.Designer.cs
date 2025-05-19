@@ -78,6 +78,7 @@
             // 
             // panel1
             // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(textBoxEdit113);
             panel1.Controls.Add(textBoxEdit103);
             panel1.Controls.Add(textBoxEdit93);

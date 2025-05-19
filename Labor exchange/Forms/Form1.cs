@@ -5,12 +5,25 @@ namespace Labor_exchange
 {
     public partial class Form1 : Form
     {
+        private string _originalData;
         // Конструктор
         public Form1()
         {
             InitializeComponent();
             JobExchange jobExchangeInstance = new JobExchange();
             jobExchangeInstance.DeserializeData("data.txt");
+            _originalData = File.ReadAllText("data.txt");
+
+            // Підписка на події для обробки натискань клавіш Enter
+            textBox1.KeyDown += SearchVacancy_KeyDown;
+            textBox2.KeyDown += SearchVacancy_KeyDown;
+            textBox3.KeyDown += SearchVacancy_KeyDown;
+            textBox4.KeyDown += SearchVacancy_KeyDown;
+
+            textBox5.KeyDown += SearchProfile_KeyDown;
+            textBox6.KeyDown += SearchProfile_KeyDown;
+            textBox7.KeyDown += SearchProfile_KeyDown;
+            textBox8.KeyDown += SearchProfile_KeyDown;
         }
         // Кнопка пошуку вакансій
         private void findButton1_Click(object sender, EventArgs e)
@@ -18,9 +31,9 @@ namespace Labor_exchange
             var worksheetToFind = new JobVacancy
             {
                 Company = textBox1.Text.Trim(),
-                Position = textBox4.Text.Trim(),
-                Salary = textBox2.Text.Trim(),
-                Housing = textBox3.Text.Trim()
+                Position = textBox2.Text.Trim(),
+                Salary = textBox3.Text.Trim(),
+                Housing = textBox4.Text.Trim()
             };
 
             List<Worksheet> result = JobExchange.Find(worksheetToFind);
@@ -35,9 +48,9 @@ namespace Labor_exchange
             var worksheetToFind = new UnemployedProfile
             {
                 Proffession = textBox5.Text.Trim(),
-                Education = textBox8.Text.Trim(),
-                LastJobPlace = textBox6.Text.Trim(),
-                LastJobPosition = textBox7.Text.Trim()
+                Education = textBox6.Text.Trim(),
+                LastJobPlace = textBox7.Text.Trim(),
+                LastJobPosition = textBox8.Text.Trim()
             };
 
             List<Worksheet> result = JobExchange.Find(worksheetToFind);
@@ -57,6 +70,7 @@ namespace Labor_exchange
                     jobExchangeInstance.SerializeData("data.txt");
                     break;
                 case DialogResult.No:
+                    File.WriteAllText("data.txt", _originalData);
                     break;
                 case DialogResult.Cancel:
                     e.Cancel = true;
@@ -81,6 +95,7 @@ namespace Labor_exchange
                 {
                     unemployedProfile.IsArchived = true;
                     MessageBox.Show("Ви працевлаштували робітника! Анкету архівовано.", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    findButton2_Click(sender, EventArgs.Empty);
                 }
             }
             else if (selectedItem is JobVacancy jobVacancy)
@@ -95,6 +110,7 @@ namespace Labor_exchange
                 {
                     jobVacancy.IsArchived = true;
                     MessageBox.Show("Ви працевлаштувалися! Вакансію архівовано.", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    findButton1_Click(sender, EventArgs.Empty);
                 }
             }
             else
@@ -122,6 +138,8 @@ namespace Labor_exchange
                     JobExchange jobExchangeInstance = new JobExchange();
                     jobExchangeInstance.SerializeData("data.txt");
                     MessageBox.Show("Ви відмовились від послуг! Анкету видалено.", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    findButton2_Click(sender, EventArgs.Empty);
+
                 }
             }
             else if (selectedItem is JobVacancy jobVacancy)
@@ -138,6 +156,7 @@ namespace Labor_exchange
                     JobExchange jobExchangeInstance = new JobExchange();
                     jobExchangeInstance.SerializeData("data.txt");
                     MessageBox.Show("Ви відмовились від послуг! Вакансію видалено.", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    findButton1_Click(sender, EventArgs.Empty);
                 }
             }
             else
@@ -155,6 +174,7 @@ namespace Labor_exchange
             {
                 JobExchange.AddWorksheet(form.UnemployedProfile);
                 MessageBox.Show("Анкету успішно створено! Натисність кнопку <Пошук> на панелі пошуку анкет для її відображення", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                findButton2_Click(sender, EventArgs.Empty);
             }
         }
 
@@ -167,6 +187,7 @@ namespace Labor_exchange
             {
                 JobExchange.AddWorksheet(form.JobVacancy);
                 MessageBox.Show("Вакансію успішно створено! Натисність кнопку <Пошук> на панелі пошуку вакансій для її відображення", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                findButton1_Click(sender, EventArgs.Empty);
             }
         }
 
@@ -182,6 +203,7 @@ namespace Labor_exchange
                 if (result == DialogResult.OK)
                 {
                     MessageBox.Show("Анкету успішно змінено! Натисність кнопку <Пошук> на панелі пошуку анкет для її відображення", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    findButton2_Click(sender, EventArgs.Empty);
                 }
             }
             else if (selectedItem is JobVacancy vacancy)
@@ -191,6 +213,7 @@ namespace Labor_exchange
                 if (result == DialogResult.OK)
                 {
                     MessageBox.Show("Вакансію успішно змінено! Натисність кнопку <Пошук> на панелі пошуку вакансій для її відображення", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    findButton1_Click(sender, EventArgs.Empty);
                 }
             }
             else
@@ -217,6 +240,28 @@ namespace Labor_exchange
             else
             {
                 MessageBox.Show("Виберіть анкету робітника або вакансію зі списку для друку.");
+            }
+        }
+
+        // Подія натискання клавіші Enter в полях пошуку вакансій
+        private void SearchVacancy_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                findButton1_Click(sender, EventArgs.Empty);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        // Подія натискання клавіші Enter в полях пошуку анкет безробітних
+        private void SearchProfile_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                findButton2_Click(sender, EventArgs.Empty);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
     }

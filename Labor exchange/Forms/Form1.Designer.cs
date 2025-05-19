@@ -76,7 +76,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { оголошенняДляДрукуToolStripMenuItem, змінитиToolStripMenuItem, обратиВакансіюробітникаToolStripMenuItem, відмовитисьВідПослугToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(599, 24);
+            menuStrip1.Size = new Size(479, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -98,7 +98,7 @@
             // 
             Додати.DropDownItems.AddRange(new ToolStripItem[] { анкетаБезробітньогоToolStripMenuItem, вакансіяРоботодавцяToolStripMenuItem });
             Додати.Name = "Додати";
-            Додати.Size = new Size(180, 22);
+            Додати.Size = new Size(119, 22);
             Додати.Text = "Додати";
             // 
             // анкетаБезробітньогоToolStripMenuItem
@@ -118,7 +118,7 @@
             // Змінити
             // 
             Змінити.Name = "Змінити";
-            Змінити.Size = new Size(180, 22);
+            Змінити.Size = new Size(119, 22);
             Змінити.Text = "Змінити";
             Змінити.Click += Змінити_Click;
             // 
@@ -377,7 +377,7 @@
             MainMenuStrip = menuStrip1;
             MinimumSize = new Size(1363, 672);
             Name = "Form1";
-            Text = "Список вакансій";
+            Text = "Список вакансій та анкет";
             FormClosing += Form1_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

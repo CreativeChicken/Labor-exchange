@@ -15,10 +15,14 @@ namespace Labor_exchange.Forms
     public partial class Form3Add : Form
     {
         public JobVacancy JobVacancy;
-        // Конструктор
+        // Конструктор та прив'язка клавіш
         public Form3Add()
         {
             InitializeComponent();
+
+
+            this.KeyPreview = true;
+            this.KeyDown += Form3Add_KeyDown;
         }
 
         // Закриття форми
@@ -60,6 +64,23 @@ namespace Labor_exchange.Forms
                     MessageBox.Show(report);
                     e.Cancel = true;
                 }
+            }
+        }
+
+        // Обробка натискання клавіш Enter та Escape
+        private void Form3Add_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+                e.Handled = true;
             }
         }
     }
