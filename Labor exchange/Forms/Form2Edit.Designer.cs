@@ -289,11 +289,11 @@
             Controls.Add(cancelButtonEdit);
             Controls.Add(okButtonEdit);
             Controls.Add(panel1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             MaximumSize = new Size(814, 422);
             MinimumSize = new Size(814, 422);
             Name = "Form2Edit";
-            Text = "Зміна анкети безробітнього";
+            Text = "Зміна анкети";
             FormClosing += Form2Edit_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

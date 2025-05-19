@@ -50,7 +50,7 @@
             // 
             cancelButtonEdit24.DialogResult = DialogResult.Cancel;
             cancelButtonEdit24.Location = new Point(342, 191);
-            cancelButtonEdit24.Margin = new Padding(2, 2, 2, 2);
+            cancelButtonEdit24.Margin = new Padding(2);
             cancelButtonEdit24.Name = "cancelButtonEdit24";
             cancelButtonEdit24.Size = new Size(97, 31);
             cancelButtonEdit24.TabIndex = 5;
@@ -61,7 +61,7 @@
             // 
             okButtonEdit14.DialogResult = DialogResult.OK;
             okButtonEdit14.Location = new Point(159, 191);
-            okButtonEdit14.Margin = new Padding(2, 2, 2, 2);
+            okButtonEdit14.Margin = new Padding(2);
             okButtonEdit14.Name = "okButtonEdit14";
             okButtonEdit14.Size = new Size(97, 31);
             okButtonEdit14.TabIndex = 4;
@@ -83,7 +83,7 @@
             panel1.Controls.Add(label24);
             panel1.Controls.Add(label14);
             panel1.Location = new Point(34, 19);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(534, 141);
             panel1.TabIndex = 3;
@@ -91,7 +91,7 @@
             // textBoxEdit64
             // 
             textBoxEdit64.Location = new Point(398, 85);
-            textBoxEdit64.Margin = new Padding(2, 2, 2, 2);
+            textBoxEdit64.Margin = new Padding(2);
             textBoxEdit64.Name = "textBoxEdit64";
             textBoxEdit64.Size = new Size(98, 23);
             textBoxEdit64.TabIndex = 11;
@@ -99,7 +99,7 @@
             // textBoxEdit54
             // 
             textBoxEdit54.Location = new Point(398, 49);
-            textBoxEdit54.Margin = new Padding(2, 2, 2, 2);
+            textBoxEdit54.Margin = new Padding(2);
             textBoxEdit54.Name = "textBoxEdit54";
             textBoxEdit54.Size = new Size(98, 23);
             textBoxEdit54.TabIndex = 10;
@@ -107,7 +107,7 @@
             // textBoxEdit44
             // 
             textBoxEdit44.Location = new Point(398, 17);
-            textBoxEdit44.Margin = new Padding(2, 2, 2, 2);
+            textBoxEdit44.Margin = new Padding(2);
             textBoxEdit44.Name = "textBoxEdit44";
             textBoxEdit44.Size = new Size(98, 23);
             textBoxEdit44.TabIndex = 9;
@@ -115,7 +115,7 @@
             // textBoxEdit34
             // 
             textBoxEdit34.Location = new Point(111, 89);
-            textBoxEdit34.Margin = new Padding(2, 2, 2, 2);
+            textBoxEdit34.Margin = new Padding(2);
             textBoxEdit34.Name = "textBoxEdit34";
             textBoxEdit34.Size = new Size(98, 23);
             textBoxEdit34.TabIndex = 8;
@@ -123,7 +123,7 @@
             // textBoxEdit24
             // 
             textBoxEdit24.Location = new Point(111, 50);
-            textBoxEdit24.Margin = new Padding(2, 2, 2, 2);
+            textBoxEdit24.Margin = new Padding(2);
             textBoxEdit24.Name = "textBoxEdit24";
             textBoxEdit24.Size = new Size(98, 23);
             textBoxEdit24.TabIndex = 7;
@@ -131,7 +131,7 @@
             // textBoxEdit14
             // 
             textBoxEdit14.Location = new Point(111, 17);
-            textBoxEdit14.Margin = new Padding(2, 2, 2, 2);
+            textBoxEdit14.Margin = new Padding(2);
             textBoxEdit14.Name = "textBoxEdit14";
             textBoxEdit14.Size = new Size(98, 23);
             textBoxEdit14.TabIndex = 6;
@@ -204,11 +204,11 @@
             Controls.Add(cancelButtonEdit24);
             Controls.Add(okButtonEdit14);
             Controls.Add(panel1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             MaximumSize = new Size(619, 280);
             MinimumSize = new Size(619, 280);
             Name = "Form3Edit";
-            Text = "Зміна вакансії роботодавця";
+            Text = "Зміна вакансії";
             FormClosing += Form3Edit_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

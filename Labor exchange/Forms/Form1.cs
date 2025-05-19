@@ -18,9 +18,9 @@ namespace Labor_exchange
             var worksheetToFind = new JobVacancy
             {
                 Company = textBox1.Text.Trim(),
-                Position = textBox2.Text.Trim(),
-                Salary = textBox3.Text.Trim(),
-                Housing = textBox4.Text.Trim()
+                Position = textBox4.Text.Trim(),
+                Salary = textBox2.Text.Trim(),
+                Housing = textBox3.Text.Trim()
             };
 
             List<Worksheet> result = JobExchange.Find(worksheetToFind);
@@ -35,9 +35,9 @@ namespace Labor_exchange
             var worksheetToFind = new UnemployedProfile
             {
                 Proffession = textBox5.Text.Trim(),
-                Education = textBox6.Text.Trim(),
-                LastJobPlace = textBox7.Text.Trim(),
-                LastJobPosition = textBox8.Text.Trim()
+                Education = textBox8.Text.Trim(),
+                LastJobPlace = textBox6.Text.Trim(),
+                LastJobPosition = textBox7.Text.Trim()
             };
 
             List<Worksheet> result = JobExchange.Find(worksheetToFind);
@@ -80,6 +80,7 @@ namespace Labor_exchange
                 if (result == DialogResult.Yes)
                 {
                     unemployedProfile.IsArchived = true;
+                    MessageBox.Show("Ви працевлаштували робітника! Анкету архівовано.", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if (selectedItem is JobVacancy jobVacancy)
@@ -93,6 +94,7 @@ namespace Labor_exchange
                 if (result == DialogResult.Yes)
                 {
                     jobVacancy.IsArchived = true;
+                    MessageBox.Show("Ви працевлаштувалися! Вакансію архівовано.", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
@@ -119,6 +121,7 @@ namespace Labor_exchange
                     JobExchange.RemoveWorksheet(unemployedProfile);
                     JobExchange jobExchangeInstance = new JobExchange();
                     jobExchangeInstance.SerializeData("data.txt");
+                    MessageBox.Show("Ви відмовились від послуг! Анкету видалено.", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if (selectedItem is JobVacancy jobVacancy)
@@ -134,6 +137,7 @@ namespace Labor_exchange
                     JobExchange.RemoveWorksheet(jobVacancy);
                     JobExchange jobExchangeInstance = new JobExchange();
                     jobExchangeInstance.SerializeData("data.txt");
+                    MessageBox.Show("Ви відмовились від послуг! Вакансію видалено.", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
@@ -150,6 +154,7 @@ namespace Labor_exchange
             if (result == DialogResult.OK)
             {
                 JobExchange.AddWorksheet(form.UnemployedProfile);
+                MessageBox.Show("Анкету успішно створено! Натисність кнопку <Пошук> на панелі пошуку анкет для її відображення", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -161,6 +166,7 @@ namespace Labor_exchange
             if (result == DialogResult.OK)
             {
                 JobExchange.AddWorksheet(form.JobVacancy);
+                MessageBox.Show("Вакансію успішно створено! Натисність кнопку <Пошук> на панелі пошуку вакансій для її відображення", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -172,12 +178,20 @@ namespace Labor_exchange
             if (selectedItem is UnemployedProfile profile)
             {
                 using Form2Edit form = new(profile);
-                form.ShowDialog();
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    MessageBox.Show("Анкету успішно змінено! Натисність кнопку <Пошук> на панелі пошуку анкет для її відображення", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else if (selectedItem is JobVacancy vacancy)
             {
                 using Form3Edit form = new(vacancy);
-                form.ShowDialog();
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    MessageBox.Show("Вакансію успішно змінено! Натисність кнопку <Пошук> на панелі пошуку вакансій для її відображення", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
