@@ -71,11 +71,12 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.Dock = DockStyle.None;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { оголошенняДляДрукуToolStripMenuItem, змінитиToolStripMenuItem, обратиВакансіюробітникаToolStripMenuItem, відмовитисьВідПослугToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1347, 24);
+            menuStrip1.Size = new Size(479, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -97,7 +98,7 @@
             // 
             Додати.DropDownItems.AddRange(new ToolStripItem[] { анкетаБезробітньогоToolStripMenuItem, вакансіяРоботодавцяToolStripMenuItem });
             Додати.Name = "Додати";
-            Додати.Size = new Size(180, 22);
+            Додати.Size = new Size(119, 22);
             Додати.Text = "Додати";
             // 
             // анкетаБезробітньогоToolStripMenuItem
@@ -110,14 +111,14 @@
             // вакансіяРоботодавцяToolStripMenuItem
             // 
             вакансіяРоботодавцяToolStripMenuItem.Name = "вакансіяРоботодавцяToolStripMenuItem";
-            вакансіяРоботодавцяToolStripMenuItem.Size = new Size(195, 22);
+            вакансіяРоботодавцяToolStripMenuItem.Size = new Size(210, 22);
             вакансіяРоботодавцяToolStripMenuItem.Text = "Вакансія роботодавця";
             вакансіяРоботодавцяToolStripMenuItem.Click += вакансіяРоботодавцяToolStripMenuItem_Click;
             // 
             // Змінити
             // 
             Змінити.Name = "Змінити";
-            Змінити.Size = new Size(180, 22);
+            Змінити.Size = new Size(119, 22);
             Змінити.Text = "Змінити";
             Змінити.Click += Змінити_Click;
             // 
@@ -137,12 +138,13 @@
             // 
             // listBox1
             // 
+            listBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             listBox1.DataSource = worksheetBindingSource;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(363, 24);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(961, 604);
+            listBox1.Size = new Size(972, 604);
             listBox1.TabIndex = 1;
             // 
             // worksheetBindingSource
@@ -151,6 +153,7 @@
             // 
             // panel1
             // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(findButton1);
             panel1.Controls.Add(textBox2);
             panel1.Controls.Add(textBox4);
@@ -251,6 +254,7 @@
             // 
             // panel2
             // 
+            panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(findButton2);
             panel2.Controls.Add(textBox6);
             panel2.Controls.Add(textBox8);
@@ -351,6 +355,7 @@
             // 
             // nothingFoundLabel
             // 
+            nothingFoundLabel.Anchor = AnchorStyles.Top;
             nothingFoundLabel.AutoSize = true;
             nothingFoundLabel.Location = new Point(783, 43);
             nothingFoundLabel.Name = "nothingFoundLabel";
@@ -370,6 +375,7 @@
             Controls.Add(listBox1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            MinimumSize = new Size(1363, 672);
             Name = "Form1";
             Text = "Список вакансій";
             FormClosing += Form1_FormClosing;

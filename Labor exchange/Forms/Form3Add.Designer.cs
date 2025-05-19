@@ -61,7 +61,7 @@
             panel1.Controls.Add(label24);
             panel1.Controls.Add(label14);
             panel1.Location = new Point(32, 16);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(534, 141);
             panel1.TabIndex = 0;
@@ -69,7 +69,7 @@
             // textBox64
             // 
             textBox64.Location = new Point(398, 85);
-            textBox64.Margin = new Padding(2, 2, 2, 2);
+            textBox64.Margin = new Padding(2);
             textBox64.Name = "textBox64";
             textBox64.Size = new Size(98, 23);
             textBox64.TabIndex = 11;
@@ -77,7 +77,7 @@
             // textBox54
             // 
             textBox54.Location = new Point(398, 49);
-            textBox54.Margin = new Padding(2, 2, 2, 2);
+            textBox54.Margin = new Padding(2);
             textBox54.Name = "textBox54";
             textBox54.Size = new Size(98, 23);
             textBox54.TabIndex = 10;
@@ -85,7 +85,7 @@
             // textBox44
             // 
             textBox44.Location = new Point(398, 17);
-            textBox44.Margin = new Padding(2, 2, 2, 2);
+            textBox44.Margin = new Padding(2);
             textBox44.Name = "textBox44";
             textBox44.Size = new Size(98, 23);
             textBox44.TabIndex = 9;
@@ -93,7 +93,7 @@
             // textBox34
             // 
             textBox34.Location = new Point(111, 89);
-            textBox34.Margin = new Padding(2, 2, 2, 2);
+            textBox34.Margin = new Padding(2);
             textBox34.Name = "textBox34";
             textBox34.Size = new Size(98, 23);
             textBox34.TabIndex = 8;
@@ -101,7 +101,7 @@
             // textBox24
             // 
             textBox24.Location = new Point(111, 50);
-            textBox24.Margin = new Padding(2, 2, 2, 2);
+            textBox24.Margin = new Padding(2);
             textBox24.Name = "textBox24";
             textBox24.Size = new Size(98, 23);
             textBox24.TabIndex = 7;
@@ -109,7 +109,7 @@
             // textBox14
             // 
             textBox14.Location = new Point(111, 17);
-            textBox14.Margin = new Padding(2, 2, 2, 2);
+            textBox14.Margin = new Padding(2);
             textBox14.Name = "textBox14";
             textBox14.Size = new Size(98, 23);
             textBox14.TabIndex = 6;
@@ -178,7 +178,7 @@
             // 
             button14.DialogResult = DialogResult.OK;
             button14.Location = new Point(157, 188);
-            button14.Margin = new Padding(2, 2, 2, 2);
+            button14.Margin = new Padding(2);
             button14.Name = "button14";
             button14.Size = new Size(97, 31);
             button14.TabIndex = 1;
@@ -189,7 +189,7 @@
             // 
             button24.DialogResult = DialogResult.Cancel;
             button24.Location = new Point(340, 188);
-            button24.Margin = new Padding(2, 2, 2, 2);
+            button24.Margin = new Padding(2);
             button24.Name = "button24";
             button24.Size = new Size(97, 31);
             button24.TabIndex = 2;
@@ -204,7 +204,9 @@
             Controls.Add(button24);
             Controls.Add(button14);
             Controls.Add(panel1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
+            MaximumSize = new Size(619, 280);
+            MinimumSize = new Size(619, 280);
             Name = "Form3Add";
             Text = "Додавання вакансії";
             FormClosing += Form3_FormClosing;

@@ -282,6 +282,7 @@
             label1.Size = new Size(186, 15);
             label1.TabIndex = 0;
             label1.Text = "Оголошення про пошук роботи";
+            label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // Form4ForPrintProfile
             // 
@@ -289,6 +290,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(813, 656);
             Controls.Add(panel1);
+            MaximumSize = new Size(829, 695);
+            MinimumSize = new Size(829, 695);
             Name = "Form4ForPrintProfile";
             Text = "Оголошення для друку";
             panel1.ResumeLayout(false);

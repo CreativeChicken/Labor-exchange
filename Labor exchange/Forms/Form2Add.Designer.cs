@@ -58,6 +58,8 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(textBox113);
             panel1.Controls.Add(textBox103);
             panel1.Controls.Add(textBox93);
@@ -263,6 +265,7 @@
             // 
             // okButton
             // 
+            okButton.Anchor = AnchorStyles.Top;
             okButton.DialogResult = DialogResult.OK;
             okButton.Location = new Point(277, 335);
             okButton.Name = "okButton";
@@ -273,6 +276,7 @@
             // 
             // cancelButton
             // 
+            cancelButton.Anchor = AnchorStyles.Top;
             cancelButton.DialogResult = DialogResult.Cancel;
             cancelButton.Location = new Point(420, 335);
             cancelButton.Name = "cancelButton";
@@ -285,10 +289,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(792, 389);
+            ClientSize = new Size(792, 368);
             Controls.Add(cancelButton);
             Controls.Add(okButton);
             Controls.Add(panel1);
+            MaximumSize = new Size(808, 407);
+            MinimumSize = new Size(808, 407);
             Name = "Form2Add";
             Text = "Додавання анкети";
             FormClosing += Form2_FormClosing;
