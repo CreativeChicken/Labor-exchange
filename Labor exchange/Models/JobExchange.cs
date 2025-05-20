@@ -79,43 +79,6 @@ namespace Labor_exchange.Models
             }
         }
 
-        // Метод для збереження даних
-        public void SaveData(string path)
-        {
-            using (StreamWriter writer = new(path))
-            {
-                foreach (Worksheet unit in worksheets)
-                {
-                    if (unit is UnemployedProfile unemployedProfile)
-                    {
-                        writer.WriteLine($"Анкета робітника|{unemployedProfile}");
-                    }
-                    else if (unit is JobVacancy jobVacancy)
-                    {
-                        writer.WriteLine($"Вакансія роботодавця|{jobVacancy}");
-                    }
-                }
-            }
-        }
-
-        // Метод для завантаження даних
-        public void LoadData(string path)
-        {
-            using (StreamReader reader = new(path))
-            {
-                string? line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    if (line.StartsWith("Анкета робітника|"))
-                        worksheets.Add(UnemployedProfile.FromString(line.Substring("Анкета робітника|".Length)));
-                    else if (line.StartsWith("Вакансія роботодавця|"))
-                        worksheets.Add(JobVacancy.FromString(line.Substring("Вакансія роботодавця|".Length)));
-                    else
-                        throw new FormatException($"Нерозпізнаний формат рядка: {line}");
-                }
-            }
-        }
-
         // Метод для сереалізації даних
         public void SerializeData(string path)
         {
