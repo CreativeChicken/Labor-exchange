@@ -173,7 +173,7 @@ namespace Labor_exchange
             if (result == DialogResult.OK)
             {
                 JobExchange.AddWorksheet(form.UnemployedProfile);
-                MessageBox.Show("Анкету успішно створено! Натисність кнопку <Пошук> на панелі пошуку анкет для її відображення", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Анкету успішно створено!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 findButton2_Click(sender, EventArgs.Empty);
             }
         }
@@ -186,7 +186,7 @@ namespace Labor_exchange
             if (result == DialogResult.OK)
             {
                 JobExchange.AddWorksheet(form.JobVacancy);
-                MessageBox.Show("Вакансію успішно створено! Натисність кнопку <Пошук> на панелі пошуку вакансій для її відображення", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Вакансію успішно створено!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 findButton1_Click(sender, EventArgs.Empty);
             }
         }
@@ -202,7 +202,7 @@ namespace Labor_exchange
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    MessageBox.Show("Анкету успішно змінено! Натисність кнопку <Пошук> на панелі пошуку анкет для її відображення", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Анкету успішно змінено!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     findButton2_Click(sender, EventArgs.Empty);
                 }
             }
@@ -212,7 +212,7 @@ namespace Labor_exchange
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    MessageBox.Show("Вакансію успішно змінено! Натисність кнопку <Пошук> на панелі пошуку вакансій для її відображення", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Вакансію успішно змінено!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     findButton1_Click(sender, EventArgs.Empty);
                 }
             }
