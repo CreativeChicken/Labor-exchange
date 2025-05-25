@@ -25,20 +25,26 @@ namespace Labor_exchange.Forms
             this.KeyDown += Form3Add_KeyDown;
         }
 
+        // Створення об'єкта JobVacancy з введених даних
+        private JobVacancy CreateJobVacancyFromInputs()
+        {
+            return new JobVacancy
+            {
+                Company = textBox14.Text,
+                Position = textBox24.Text,
+                Conditions = textBox34.Text,
+                Salary = textBox44.Text,
+                Housing = textBox54.Text,
+                Requirements = textBox64.Text,
+            };
+        }
+
         // Закриття форми
         private void Form3_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (DialogResult == DialogResult.OK)
             {
-                JobVacancy = new JobVacancy
-                {
-                    Company = textBox14.Text,
-                    Position = textBox24.Text,
-                    Conditions = textBox34.Text,
-                    Salary = textBox44.Text,
-                    Housing = textBox54.Text,
-                    Requirements = textBox64.Text,
-                };
+                JobVacancy = CreateJobVacancyFromInputs();
             }
         }
 
@@ -47,15 +53,7 @@ namespace Labor_exchange.Forms
         {
             if (DialogResult == DialogResult.OK)
             {
-                JobVacancy = new JobVacancy
-                {
-                    Company = textBox14.Text,
-                    Position = textBox24.Text,
-                    Conditions = textBox34.Text,
-                    Salary = textBox44.Text,
-                    Housing = textBox54.Text,
-                    Requirements = textBox64.Text,
-                };
+                JobVacancy = CreateJobVacancyFromInputs();
 
                 // Валидация
                 string report = JobVacancy.Validate();

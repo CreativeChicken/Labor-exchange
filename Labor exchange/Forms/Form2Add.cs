@@ -25,25 +25,31 @@ namespace Labor_exchange.Forms
             this.KeyDown += Form2Add_KeyDown;
         }
 
+        /// Створення UnemployedProfile з введених даних
+        private UnemployedProfile CreateUnemployedProfileFromInputs()
+        {
+            return new UnemployedProfile
+            {
+                Name = textBox13.Text,
+                Age = int.TryParse(textBox23.Text, out int age) ? age : 0,
+                Proffession = textBox33.Text,
+                Education = textBox43.Text,
+                LastJobPlace = textBox53.Text,
+                LastJobPosition = textBox63.Text,
+                DismissalReason = textBox73.Text,
+                MaritalStatus = textBox83.Text,
+                Housing = textBox93.Text,
+                Contacts = textBox103.Text,
+                JobExpectations = textBox113.Text
+            };
+        }
+
         // Закриття форми
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (DialogResult == DialogResult.OK)
             {
-                UnemployedProfile = new UnemployedProfile
-                {
-                    Name = textBox13.Text,
-                    Age = int.TryParse(textBox23.Text, out int age) ? age : 0,
-                    Proffession = textBox33.Text,
-                    Education = textBox43.Text,
-                    LastJobPlace = textBox53.Text,
-                    LastJobPosition = textBox63.Text,
-                    DismissalReason = textBox73.Text,
-                    MaritalStatus = textBox83.Text,
-                    Housing = textBox93.Text,
-                    Contacts = textBox103.Text,
-                    JobExpectations = textBox113.Text
-                };
+                UnemployedProfile = CreateUnemployedProfileFromInputs();
             }
         }
 
@@ -52,22 +58,9 @@ namespace Labor_exchange.Forms
         {
             if (DialogResult == DialogResult.OK)
             {
-                UnemployedProfile = new UnemployedProfile
-                {
-                    Name = textBox13.Text,
-                    Age = int.TryParse(textBox23.Text, out int age) ? age : 0,
-                    Proffession = textBox33.Text,
-                    Education = textBox43.Text,
-                    LastJobPlace = textBox53.Text,
-                    LastJobPosition = textBox63.Text,
-                    DismissalReason = textBox73.Text,
-                    MaritalStatus = textBox83.Text,
-                    Housing = textBox93.Text,
-                    Contacts = textBox103.Text,
-                    JobExpectations = textBox113.Text
-                };
+                UnemployedProfile = CreateUnemployedProfileFromInputs();
 
-                // Валідація
+                // Валидация
                 string report = UnemployedProfile.Validate();
                 if (report != "")
                 {

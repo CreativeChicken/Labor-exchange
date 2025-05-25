@@ -18,26 +18,26 @@ namespace Labor_exchange.Models
         {
             List<Worksheet> finded = new List<Worksheet>();
 
-            foreach (var unit in worksheets)
+            foreach (var worksheet in worksheets)
             {
-                if (unit is JobVacancy jobVacancy && worksheetToFind is JobVacancy targetVacancy)
+                if (worksheet is JobVacancy jobVacancy && worksheetToFind is JobVacancy targetVacancy)
                 {
                     if (jobVacancy.Company.Contains(targetVacancy.Company, StringComparison.OrdinalIgnoreCase) &&
                         jobVacancy.Position.Contains(targetVacancy.Position, StringComparison.OrdinalIgnoreCase) &&
                         jobVacancy.Salary.Contains(targetVacancy.Salary, StringComparison.OrdinalIgnoreCase) &&
                         jobVacancy.Housing.Contains(targetVacancy.Housing, StringComparison.OrdinalIgnoreCase))
                     {
-                        finded.Add(unit);
+                        finded.Add(worksheet);
                     }
                 }
-                else if (unit is UnemployedProfile profile && worksheetToFind is UnemployedProfile targetProfile)
+                else if (worksheet is UnemployedProfile profile && worksheetToFind is UnemployedProfile targetProfile)
                 {
                     if (profile.Proffession.Contains(targetProfile.Proffession, StringComparison.OrdinalIgnoreCase) &&
                         profile.Education.Contains(targetProfile.Education, StringComparison.OrdinalIgnoreCase) &&
                         profile.LastJobPlace.Contains(targetProfile.LastJobPlace, StringComparison.OrdinalIgnoreCase) &&
                         profile.Housing.Contains(targetProfile.LastJobPosition, StringComparison.OrdinalIgnoreCase))
                     {
-                        finded.Add(unit);
+                        finded.Add(worksheet);
                     }
                 }
             }
@@ -82,8 +82,8 @@ namespace Labor_exchange.Models
         // Метод для сереалізації даних
         public void SerializeData(string path)
         {
-            var unemployedProfile = worksheets.Where(u => u is not JobVacancy).Cast<UnemployedProfile>();
-            var jobVacancy = worksheets.Where(u => u is JobVacancy).Cast<JobVacancy>();
+            var unemployedProfile = worksheets.Where(w => w is not JobVacancy).Cast<UnemployedProfile>();
+            var jobVacancy = worksheets.Where(w => w is JobVacancy).Cast<JobVacancy>();
             string jsonB = JsonSerializer.Serialize(unemployedProfile);
             string jsonTB = JsonSerializer.Serialize(jobVacancy);
             File.WriteAllLines(path, [jsonB, jsonTB]);
@@ -113,7 +113,7 @@ namespace Labor_exchange.Models
         // Метод для генерації унікального Id
         private static int GenerateId()
         {
-            return worksheets.Select(u => u.Id).Max() + 1;
+            return worksheets.Select(w => w.Id).Max() + 1;
         }
 
         // Метод для видалення вакансії або анкети
