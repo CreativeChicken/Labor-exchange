@@ -11,12 +11,13 @@ using System.Windows.Forms;
 
 namespace Labor_exchange.Forms
 {
-    public partial class Form2Edit : Form
+    // Форма для редагування профілю безробітного
+    public partial class ProfileEdit : Form
     {
         public UnemployedProfile UnemployedProfile;
 
         // Конструктор з завчасно заданими даними та прив'язка клавіш
-        public Form2Edit(UnemployedProfile unemployedProfile)
+        public ProfileEdit(UnemployedProfile unemployedProfile)
         {
             InitializeComponent();
 

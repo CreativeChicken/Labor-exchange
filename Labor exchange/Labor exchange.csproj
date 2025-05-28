@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Forms\Form4ForPrintProfile.cs">
+    <Compile Update="Forms\FormForPrintProfile.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

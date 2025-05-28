@@ -7,6 +7,7 @@ using System.Text.Json;
 
 namespace Labor_exchange.Models
 {
+    // Клас для анкет безробітних
     public class UnemployedProfile : Worksheet
     {
         public string Name { get; set; } = "Невідомо";
@@ -26,30 +27,6 @@ namespace Labor_exchange.Models
         public override string ToString()
         {
             return (IsArchived ? "[У АРХІВІ] " : "") + $"{Name} | {Age} | {Proffession} | {Education} | {LastJobPlace} | {LastJobPosition} | {DismissalReason} | {MaritalStatus} | {Housing} | {Contacts} | {JobExpectations} ";
-        }
-
-        // Метод для перетворення рядка в об'єкт UnemployedProfile
-        public static UnemployedProfile FromString(string line)
-        {
-            var arr = line.Split('|');
-            if (arr.Length != 11)
-                throw new FormatException("Недійсний формат.");
-
-            return new UnemployedProfile
-            {
-                Id = Convert.ToInt32(arr[1]),
-                Name = arr[2],
-                Age = Convert.ToInt32(arr[3]),
-                Proffession = arr[4],
-                Education = arr[5],
-                LastJobPlace = arr[6],
-                LastJobPosition = arr[7],
-                DismissalReason = arr[8],
-                MaritalStatus = arr[9],
-                Housing = arr[10],
-                Contacts = arr[11],
-                JobExpectations = arr[12]
-            };
         }
 
         // Метод для перевірки валідності даних

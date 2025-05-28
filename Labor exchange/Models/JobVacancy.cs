@@ -7,6 +7,7 @@ using System.Text.Json;
 
 namespace Labor_exchange.Models
 {
+    // Клас для вакансій
     public class JobVacancy : Worksheet
     {
         public string Company { get; set; } = "Невідомо";
@@ -21,25 +22,6 @@ namespace Labor_exchange.Models
         public override string ToString()
         {
             return (IsArchived ? "[У АРХІВІ] " : "") + $"{Company} | {Position} | {Conditions} | {Salary} | {Housing} | {Requirements}";
-        }
-
-        // Метод для перетворення рядка в об'єкт JobVacancy
-        public static JobVacancy FromString(string line)
-        {
-            var arr = line.Split('|');
-            if (arr.Length != 6)
-                throw new FormatException("Недійсний формат.");
-
-            return new JobVacancy
-            {
-                Id = Convert.ToInt32(arr[1]),
-                Company = arr[2],
-                Position = arr[3],
-                Conditions = arr[4],
-                Salary = arr[5],
-                Housing = arr[6],
-                Requirements = arr[7]
-            };
         }
 
         // Метод для перевірки валідності даних

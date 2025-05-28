@@ -3,11 +3,12 @@ using Labor_exchange.Forms;
 
 namespace Labor_exchange
 {
-    public partial class Form1 : Form
+    // Головна форма програми
+    public partial class MainForm : Form
     {
         private string _originalData;
         // Конструктор
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             JobExchange jobExchangeInstance = new JobExchange();
@@ -168,7 +169,7 @@ namespace Labor_exchange
         // Кнопка додавання анкети безробітного
         private void анкетаБезробітньогоToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using Form2Add form = new();
+            using ProfileAdd form = new();
             var result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -181,7 +182,7 @@ namespace Labor_exchange
         // Кнопка додавання вакансії
         private void вакансіяРоботодавцяToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using Form3Add form = new();
+            using VacancyAdd form = new();
             var result = form.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -198,7 +199,7 @@ namespace Labor_exchange
 
             if (selectedItem is UnemployedProfile profile)
             {
-                using Form2Edit form = new(profile);
+                using ProfileEdit form = new(profile);
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
@@ -208,7 +209,7 @@ namespace Labor_exchange
             }
             else if (selectedItem is JobVacancy vacancy)
             {
-                using Form3Edit form = new(vacancy);
+                using VacancyEdit form = new(vacancy);
                 var result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
@@ -229,12 +230,12 @@ namespace Labor_exchange
 
             if (selectedItem is UnemployedProfile profile)
             {
-                using Form4ForPrintProfile form = new Form4ForPrintProfile(profile);
+                using FormForPrintProfile form = new FormForPrintProfile(profile);
                 form.ShowDialog();
             }
             else if (selectedItem is JobVacancy vacancy)
             {
-                using Form4ForPrintVacancy form = new Form4ForPrintVacancy(vacancy);
+                using FormForPrintVacancy form = new FormForPrintVacancy(vacancy);
                 form.ShowDialog();
             }
             else

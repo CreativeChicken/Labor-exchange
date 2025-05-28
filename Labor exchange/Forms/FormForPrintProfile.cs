@@ -11,12 +11,13 @@ using System.Windows.Forms;
 
 namespace Labor_exchange.Forms
 {
-    public partial class Form4ForPrintProfile : Form
+    // Форма для формування оголошення профілю безробітного
+    public partial class FormForPrintProfile : Form
     {
         public UnemployedProfile UnemployedProfile;
 
         // Конструктор з завчасно заданими даними
-        public Form4ForPrintProfile(UnemployedProfile unemployedProfile)
+        public FormForPrintProfile(UnemployedProfile unemployedProfile)
         {
             InitializeComponent();
 

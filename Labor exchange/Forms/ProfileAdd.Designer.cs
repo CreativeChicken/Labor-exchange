@@ -1,6 +1,6 @@
 ﻿namespace Labor_exchange.Forms
 {
-    partial class Form2Add
+    partial class ProfileAdd
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace Labor_exchange
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -76,7 +76,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { оголошенняДляДрукуToolStripMenuItem, змінитиToolStripMenuItem, обратиВакансіюробітникаToolStripMenuItem, відмовитисьВідПослугToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(479, 24);
+            menuStrip1.Size = new Size(466, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -98,35 +98,35 @@
             // 
             Додати.DropDownItems.AddRange(new ToolStripItem[] { анкетаБезробітньогоToolStripMenuItem, вакансіяРоботодавцяToolStripMenuItem });
             Додати.Name = "Додати";
-            Додати.Size = new Size(119, 22);
+            Додати.Size = new Size(180, 22);
             Додати.Text = "Додати";
             // 
             // анкетаБезробітньогоToolStripMenuItem
             // 
             анкетаБезробітньогоToolStripMenuItem.Name = "анкетаБезробітньогоToolStripMenuItem";
-            анкетаБезробітньогоToolStripMenuItem.Size = new Size(204, 22);
-            анкетаБезробітньогоToolStripMenuItem.Text = "Анкета безробітного(-ї)";
+            анкетаБезробітньогоToolStripMenuItem.Size = new Size(195, 22);
+            анкетаБезробітньогоToolStripMenuItem.Text = "Анкета безробітного";
             анкетаБезробітньогоToolStripMenuItem.Click += анкетаБезробітньогоToolStripMenuItem_Click;
             // 
             // вакансіяРоботодавцяToolStripMenuItem
             // 
             вакансіяРоботодавцяToolStripMenuItem.Name = "вакансіяРоботодавцяToolStripMenuItem";
-            вакансіяРоботодавцяToolStripMenuItem.Size = new Size(204, 22);
+            вакансіяРоботодавцяToolStripMenuItem.Size = new Size(195, 22);
             вакансіяРоботодавцяToolStripMenuItem.Text = "Вакансія роботодавця";
             вакансіяРоботодавцяToolStripMenuItem.Click += вакансіяРоботодавцяToolStripMenuItem_Click;
             // 
             // Змінити
             // 
             Змінити.Name = "Змінити";
-            Змінити.Size = new Size(119, 22);
+            Змінити.Size = new Size(180, 22);
             Змінити.Text = "Змінити";
             Змінити.Click += Змінити_Click;
             // 
             // обратиВакансіюробітникаToolStripMenuItem
             // 
             обратиВакансіюробітникаToolStripMenuItem.Name = "обратиВакансіюробітникаToolStripMenuItem";
-            обратиВакансіюробітникаToolStripMenuItem.Size = new Size(144, 20);
-            обратиВакансіюробітникаToolStripMenuItem.Text = "Працевлаштувати(-ся)";
+            обратиВакансіюробітникаToolStripMenuItem.Size = new Size(131, 20);
+            обратиВакансіюробітникаToolStripMenuItem.Text = "Працевлаштуватися";
             обратиВакансіюробітникаToolStripMenuItem.Click += обратиВакансіюробітникаToolStripMenuItem_Click;
             // 
             // відмовитисьВідПослугToolStripMenuItem
@@ -365,7 +365,7 @@
             nothingFoundLabel.Text = "Нічого не знайдено";
             nothingFoundLabel.Visible = false;
             // 
-            // Form1
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -377,7 +377,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             MinimumSize = new Size(1363, 672);
-            Name = "Form1";
+            Name = "MainForm";
             Text = "Список вакансій та анкет";
             FormClosing += Form1_FormClosing;
             menuStrip1.ResumeLayout(false);

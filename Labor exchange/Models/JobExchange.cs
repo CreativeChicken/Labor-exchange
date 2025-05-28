@@ -9,6 +9,7 @@ using System.IO;
 
 namespace Labor_exchange.Models
 {
+    // Клас для дій над вакансіями та анкетами безробітних
     public class JobExchange
     {
         public static List<Worksheet> worksheets { get; set; } = new();
@@ -35,7 +36,7 @@ namespace Labor_exchange.Models
                     if (profile.Proffession.Contains(targetProfile.Proffession, StringComparison.OrdinalIgnoreCase) &&
                         profile.Education.Contains(targetProfile.Education, StringComparison.OrdinalIgnoreCase) &&
                         profile.LastJobPlace.Contains(targetProfile.LastJobPlace, StringComparison.OrdinalIgnoreCase) &&
-                        profile.Housing.Contains(targetProfile.LastJobPosition, StringComparison.OrdinalIgnoreCase))
+                        profile.LastJobPosition.Contains(targetProfile.LastJobPosition, StringComparison.OrdinalIgnoreCase))
                     {
                         finded.Add(worksheet);
                     }
@@ -48,8 +49,7 @@ namespace Labor_exchange.Models
         // Метод для генерації тестових даних
         public void CreateTestData(int count)
         {
-            int i = 1;
-            for (; i <= count; i++)
+            for (int i = 1; i <= count; i++)
             {
                 worksheets.Add(new JobVacancy
                 {
@@ -82,10 +82,16 @@ namespace Labor_exchange.Models
         // Метод для сереалізації даних
         public void SerializeData(string path)
         {
-            var unemployedProfile = worksheets.Where(w => w is not JobVacancy).Cast<UnemployedProfile>();
-            var jobVacancy = worksheets.Where(w => w is JobVacancy).Cast<JobVacancy>();
-            string jsonB = JsonSerializer.Serialize(unemployedProfile);
-            string jsonTB = JsonSerializer.Serialize(jobVacancy);
+            var unemployedProfile = worksheets
+                .Where(w => w is not JobVacancy)
+                .Cast<UnemployedProfile>();
+            var jobVacancy = worksheets
+                .Where(w => w is JobVacancy)
+                .Cast<JobVacancy>();
+            string jsonB = JsonSerializer
+                .Serialize(unemployedProfile);
+            string jsonTB = JsonSerializer
+                .Serialize(jobVacancy);
             File.WriteAllLines(path, [jsonB, jsonTB]);
         }
 
@@ -93,8 +99,10 @@ namespace Labor_exchange.Models
         public void DeserializeData(string path)
         {
             var lines = File.ReadAllLines(path);
-            var unemployedProfile = JsonSerializer.Deserialize<List<UnemployedProfile>>(lines[0]);
-            var jobVacancy = JsonSerializer.Deserialize<List<JobVacancy>>(lines[1]);
+            var unemployedProfile = JsonSerializer
+                .Deserialize<List<UnemployedProfile>>(lines[0]);
+            var jobVacancy = JsonSerializer
+                .Deserialize<List<JobVacancy>>(lines[1]);
 
             worksheets = new List<Worksheet>();
             if (unemployedProfile != null)

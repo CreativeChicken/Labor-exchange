@@ -11,12 +11,13 @@ using System.Windows.Forms;
 
 namespace Labor_exchange.Forms
 {
-    public partial class Form3Edit : Form
+    // Форма для редагування вакансії
+    public partial class VacancyEdit : Form
     {
         public JobVacancy JobVacancy;
 
         // Конструктор з завчасно заданими даними та прив'язка клавіш
-        public Form3Edit(JobVacancy jobVacancy)
+        public VacancyEdit(JobVacancy jobVacancy)
         {
             InitializeComponent();
 

@@ -1,6 +1,6 @@
 ﻿namespace Labor_exchange.Forms
 {
-    partial class Form4ForPrintProfile
+    partial class FormForPrintProfile
     {
         /// <summary>
         /// Required designer variable.

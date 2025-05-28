@@ -1,5 +1,4 @@
 ﻿using Labor_exchange.Models;
-using Labor_exchange.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,60 +8,57 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Labor_exchange.Forms
 {
-    public partial class Form2Add : Form
+    // Форма для додавання нової вакансії
+    public partial class VacancyAdd : Form
     {
-        public UnemployedProfile UnemployedProfile;
-
+        public JobVacancy JobVacancy;
         // Конструктор та прив'язка клавіш
-        public Form2Add()
+        public VacancyAdd()
         {
             InitializeComponent();
 
+
             this.KeyPreview = true;
-            this.KeyDown += Form2Add_KeyDown;
+            this.KeyDown += Form3Add_KeyDown;
         }
 
-        /// Створення UnemployedProfile з введених даних
-        private UnemployedProfile CreateUnemployedProfileFromInputs()
+        // Створення об'єкта JobVacancy з введених даних
+        private JobVacancy CreateJobVacancyFromInputs()
         {
-            return new UnemployedProfile
+            return new JobVacancy
             {
-                Name = textBox13.Text,
-                Age = int.TryParse(textBox23.Text, out int age) ? age : 0,
-                Proffession = textBox33.Text,
-                Education = textBox43.Text,
-                LastJobPlace = textBox53.Text,
-                LastJobPosition = textBox63.Text,
-                DismissalReason = textBox73.Text,
-                MaritalStatus = textBox83.Text,
-                Housing = textBox93.Text,
-                Contacts = textBox103.Text,
-                JobExpectations = textBox113.Text
+                Company = textBox14.Text,
+                Position = textBox24.Text,
+                Conditions = textBox34.Text,
+                Salary = textBox44.Text,
+                Housing = textBox54.Text,
+                Requirements = textBox64.Text,
             };
         }
 
         // Закриття форми
-        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        private void Form3_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (DialogResult == DialogResult.OK)
             {
-                UnemployedProfile = CreateUnemployedProfileFromInputs();
+                JobVacancy = CreateJobVacancyFromInputs();
             }
         }
 
         // Закриття форми з валідацією
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (DialogResult == DialogResult.OK)
             {
-                UnemployedProfile = CreateUnemployedProfileFromInputs();
+                JobVacancy = CreateJobVacancyFromInputs();
 
                 // Валидация
-                string report = UnemployedProfile.Validate();
-                if (report != "")
+                string report = JobVacancy.Validate();
+                if (!string.IsNullOrEmpty(report))
                 {
                     MessageBox.Show(report);
                     e.Cancel = true;
@@ -71,7 +67,7 @@ namespace Labor_exchange.Forms
         }
 
         // Обробка натискання клавіш Enter та Escape
-        private void Form2Add_KeyDown(object sender, KeyEventArgs e)
+        private void Form3Add_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {

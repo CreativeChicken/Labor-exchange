@@ -11,12 +11,13 @@ using System.Windows.Forms;
 
 namespace Labor_exchange.Forms
 {
-    public partial class Form4ForPrintVacancy: Form
+    // Форма для формування оголошення вакансії
+    public partial class FormForPrintVacancy: Form
     {
         public JobVacancy JobVacancy;
 
         // Конструктор з завчасно заданими даними
-        public Form4ForPrintVacancy(JobVacancy jobVacancy)
+        public FormForPrintVacancy(JobVacancy jobVacancy)
         {
             InitializeComponent();
 
